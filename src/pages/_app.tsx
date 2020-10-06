@@ -7,14 +7,14 @@ import theme from '~/styles/theme';
 import Menu from '~/components/Menu';
 import Footer from '~/components/Footer';
 
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <AnimatePresence>
-        <Menu />
-        <Component {...pageProps} />
-        <Footer />
+      <Menu />
+      <Footer />
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.route} />
       </AnimatePresence>
     </ThemeProvider>
   );

@@ -1,8 +1,8 @@
 import { saturate, tint } from 'polished';
-
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -10,11 +10,10 @@ export const Container = styled.div`
   overflow: hidden;
 `;
 
-export const Banner = styled.div`
+export const Banner = styled(motion.div)`
   background: ${props => saturate(0.2, tint(0.5, props.theme.colors.Base))};
   padding: calc(${props => props.theme.spaces.BasePadding} * 3);
-  width: 40%;
-  left: 0%;
+  width: 40vw;
   color: ${props => props.theme.colors.White};
   height: 100%;
   display: flex;
@@ -65,6 +64,7 @@ export const Timer = styled.div<{ delay: number; percent: number }>`
     height: 5px;
   }
 `;
+
 export const ProjectInformation = styled.div`
   width: 80%;
   margin-top: calc(${props => props.theme.spaces.BaseMargin} * 10);
@@ -114,7 +114,7 @@ export const ProjectDescription = styled.p`
   transition-delay: 430ms;
 `;
 
-export const Nav = styled.div`
+export const Nav = styled(motion.div)`
   position: fixed;
   right: 0;
   top: 50%;
@@ -126,8 +126,10 @@ export const Nav = styled.div`
   flex-direction: column;
   z-index: 10;
 `;
+
 export const Step = styled.div`
   font-weight: normal;
+  color: ${props => props.theme.colors.White};
   font-size: ${props => props.theme.fonts.Sizes.Banner.step};
   line-height: calc(${props => props.theme.fonts.Sizes.Banner.step});
   margin: calc(${props => props.theme.spaces.BaseMargin} * 2) 0;
@@ -181,9 +183,10 @@ export const Next = styled.span`
   }
 `;
 
-export const Project = styled.div`
+export const Project = styled(motion.div)`
   background: #069;
   position: relative;
-  min-width: calc(100vw - 2px);
+  overflow: hidden;
+  min-width: 100vw;
   height: 100vh;
 `;

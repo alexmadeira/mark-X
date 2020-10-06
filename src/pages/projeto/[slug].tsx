@@ -14,7 +14,10 @@ import {
 } from '~/styles/pages/Projeto';
 
 const Projeto: React.FC = () => (
-  <Container>
+  <Container exit="exit" animate="animate" initial="initial">
+    <Link href="/">
+      <a>Voltar</a>
+    </Link>
     <Banner>
       <BannerImage
         src="http://images.ctfassets.net/kg9jzweoze7j/xj2Z1DYo3yPaVKMD6qIKa/55afcd802f6a140101d22d60e47632eb/Renegade-1024x682.jpg"

@@ -36,6 +36,11 @@ export const Title = styled.h1`
   text-transform: uppercase;
   text-align: left;
   flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  img {
+    width: 12.5rem;
+  }
 `;
 
 export const SubTitle = styled.h2`

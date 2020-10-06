@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import Emoji from '~/components/Emoji';
 import SEO from '~/components/SEO';
 import {
   Container,
@@ -20,7 +21,7 @@ import {
   Next,
 } from '~/styles/pages/Home';
 
-import ProjectPage from './projeto/[slug]';
+import ProjectBanner from './projeto/Banner';
 
 const trasition = {
   initial: {
@@ -52,7 +53,11 @@ const Home: React.FC = () => {
       />
       <Banner variants={trasition}>
         <Spotlight>
-          <Title>Alex Madeira</Title>
+          <Title>
+            <Emoji />
+            <strong>Alex</strong>
+            <strong>Madeira</strong>
+          </Title>
           <SubTitle>Desenvolvedor Web</SubTitle>
         </Spotlight>
         <ProjectInformation>
@@ -86,7 +91,7 @@ const Home: React.FC = () => {
       </Nav>
       <Link href="/projeto/jeep">
         <Project variants={trasition}>
-          <ProjectPage />
+          <ProjectBanner hiddenTitle />
         </Project>
       </Link>
     </Container>

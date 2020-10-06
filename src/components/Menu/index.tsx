@@ -21,12 +21,16 @@ const Menu: React.FC = () => {
       <MenuContainer className={open && 'open'}>
         <MenuItem>
           <Link href="/">
-            <a>Home</a>
+            <a href="/" onClick={() => setOpen(false)}>
+              Home
+            </a>
           </Link>
         </MenuItem>
         <MenuItem>
           <Link href="/sobre">
-            <a>Sobre</a>
+            <a href="/sobre" onClick={() => setOpen(false)}>
+              Sobre
+            </a>
           </Link>
         </MenuItem>
         <MenuItem>

@@ -17,7 +17,7 @@ html{
 }
 html,
 body,
-#root {
+#__next {
   min-height: 100%;
   display:flex;
   flex-direction:column;

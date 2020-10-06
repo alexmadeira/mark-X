@@ -24,6 +24,7 @@ const theme = {
       },
       Project: {
         Title: '10rem',
+        Text: '2rem',
       },
       Sobre: {
         title: '6rem',

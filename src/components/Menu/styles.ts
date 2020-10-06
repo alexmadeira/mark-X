@@ -79,7 +79,6 @@ export const MenuContainer = styled.ul`
   visibility: hidden;
   background: ${props => props.theme.colors.Base};
   z-index: 25;
-  transition: all 0.5s ease;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
@@ -92,6 +91,7 @@ export const MenuContainer = styled.ul`
     visibility: visible;
   }
 `;
+
 export const MenuItem = styled.li`
   margin: ${props => props.theme.spaces.BasePadding} 0;
   position: relative;

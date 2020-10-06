@@ -22,6 +22,9 @@ const theme = {
       Menu: {
         link: '5.7rem',
       },
+      Project: {
+        Title: '10rem',
+      },
       Sobre: {
         title: '6rem',
         subTitile: '4.5rem',

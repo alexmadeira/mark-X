@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import GlobalStyle from '~/styles/GlobalStyle';
 import theme from '~/styles/theme';
 import Menu from '~/components/Menu';
+import Footer from '~/components/Footer';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -13,6 +14,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       <AnimatePresence>
         <Menu />
         <Component {...pageProps} />
+        <Footer />
       </AnimatePresence>
     </ThemeProvider>
   );

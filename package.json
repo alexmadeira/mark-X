@@ -9,7 +9,7 @@
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
-      "yarn lint --fix"
+      "yarn eslint --fix"
     ]
   },
   "husky": {

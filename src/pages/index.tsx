@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaInstagram, FaLinkedinIn, FaCodeBranch } from 'react-icons/fa';
 import SEO from '~/components/SEO';
 import {
   Container,
@@ -12,8 +11,6 @@ import {
   ProjectName,
   ProjectType,
   ProjectDescription,
-  Social,
-  SocialItem,
   Project,
   Nav,
   NavButton,
@@ -58,35 +55,6 @@ const Home: React.FC = () => {
             <Prev />
           </NavButton>
         </Nav>
-        <Social>
-          <SocialItem>
-            <a
-              href="https://www.instagram.com/alex.c.madeira/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram />
-            </a>
-          </SocialItem>
-          <SocialItem>
-            <a
-              href="https://www.linkedin.com/in/alex-madeira/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedinIn />
-            </a>
-          </SocialItem>
-          <SocialItem>
-            <a
-              href="https://github.com/alexmadeira"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaCodeBranch />
-            </a>
-          </SocialItem>
-        </Social>
       </Banner>
       <Project />
     </Container>

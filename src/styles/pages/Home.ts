@@ -19,7 +19,7 @@ export const Banner = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
 `;
 
@@ -67,6 +67,7 @@ export const Timer = styled.div<{ delay: number; percent: number }>`
 `;
 export const ProjectInformation = styled.div`
   width: 80%;
+  margin-top: calc(${props => props.theme.spaces.BaseMargin} * 10);
 `;
 
 export const ProjectName = styled.h3`
@@ -111,30 +112,6 @@ export const ProjectDescription = styled.p`
   );
   transition: all 250ms ease;
   transition-delay: 430ms;
-`;
-
-export const Social = styled.ul`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-`;
-
-export const SocialItem = styled.li`
-  list-style: none;
-  margin: ${props => props.theme.spaces.BaseMargin}
-    calc(${props => props.theme.spaces.BaseMargin} * 2) 0 0;
-  a {
-    color: ${props => props.theme.colors.White};
-    font-size: 2rem;
-    svg {
-      transition: all 0.3s ease;
-    }
-    &:hover {
-      svg {
-        transform: scale(1.2);
-      }
-    }
-  }
 `;
 
 export const Nav = styled.div`

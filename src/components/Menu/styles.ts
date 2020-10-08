@@ -44,29 +44,6 @@ export const Hamburguer = styled.span`
       bottom: 9px;
     }
   }
-  &.dark:not(.open) {
-    color: ${props => props.theme.colors.Black};
-  }
-  &.open {
-    &::after {
-      transform: rotate(-45deg);
-      left: -1px;
-      bottom: 17px;
-    }
-    &::before {
-      transform: rotate(45deg);
-      left: 6px;
-      top: 4px;
-    }
-    &:hover {
-      &::before {
-        transform: rotate(40deg);
-      }
-      &::after {
-        transform: rotate(-40deg);
-      }
-    }
-  }
 `;
 
 export const MenuContainer = styled.ul`

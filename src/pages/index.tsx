@@ -1,21 +1,11 @@
 import Link from 'next/link';
-import React, { useContext } from 'react';
-import PrismicDom from 'prismic-dom';
-import Emoji from '~/components/Emoji';
+import React from 'react';
 import SEO from '~/components/SEO';
-import { BannerContext } from '~/context/BannerContext';
+import Banner from '~/components/Banner';
+import { useBanner } from '~/context/BannerContext';
 
 import {
   Container,
-  Banner,
-  Spotlight,
-  Title,
-  SubTitle,
-  Timer,
-  ProjectInformation,
-  ProjectName,
-  ProjectType,
-  ProjectDescription,
   Project,
   Nav,
   NavButton,
@@ -47,13 +37,7 @@ const trasition = {
 };
 
 const Home: React.FC = () => {
-  const { projects, total, active, prev, next } = useContext(BannerContext);
-  const project = projects[active]?.data;
-
-  if (!project) {
-    return null;
-  }
-  console.log(project);
+  const { projects, total, active, prev, next } = useBanner();
 
   return (
     <Container exit="exit" animate="animate" initial="initial">
@@ -62,28 +46,7 @@ const Home: React.FC = () => {
         description="asdasdad asdasdasdasdasd adad"
         shoudExcludeTitleSufix
       />
-
-      <Banner variants={trasition}>
-        <Spotlight>
-          <Title>
-            <Emoji />
-            <strong>Alex</strong>
-            <strong>Madeira</strong>
-          </Title>
-          <SubTitle>Desenvolvedor Web</SubTitle>
-        </Spotlight>
-        <ProjectInformation>
-          <ProjectName>
-            {PrismicDom.RichText.asText(project.name)}
-            <ProjectType>E-Commerce</ProjectType>
-          </ProjectName>
-          <Timer percent={35} delay={200} />
-          <ProjectDescription>
-            Alex Madeira Alex Madeira Alex Madeira Alex Madeira Alex Madeira
-            Alex Madeira Alex Madeira
-          </ProjectDescription>
-        </ProjectInformation>
-      </Banner>
+      <Banner />
       <Nav
         data-testid="Nav"
         exit={{ opacity: 0 }}
@@ -98,7 +61,7 @@ const Home: React.FC = () => {
           <Next />
         </NavButton>
         <Step>
-          {active + 1}/{total}
+          <strong>{active + 1}</strong>/{total}
         </Step>
         <NavButton
           onClick={() => {
@@ -108,9 +71,9 @@ const Home: React.FC = () => {
           <Prev />
         </NavButton>
       </Nav>
-      <Link href="/projeto/jeep">
+      <Link href={`/projeto/${projects[active]?.slug}`}>
         <Project variants={trasition}>
-          <ProjectBanner hiddenTitle />
+          <ProjectBanner project={projects[active]} hiddenTitle />
         </Project>
       </Link>
     </Container>

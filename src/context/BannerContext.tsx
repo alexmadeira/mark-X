@@ -5,14 +5,30 @@ import React, {
   useCallback,
   useState,
   useMemo,
+  useContext,
 } from 'react';
-import { Document } from 'prismic-javascript/types/documents';
 import client from '~/lib/prismic';
+
+interface Image {
+  alt: string | null;
+  copyright: string | null;
+  dimensions: {
+    width: number;
+    height: number;
+  };
+  url: string;
+}
+
+interface Project {
+  slug: string;
+  name: string;
+  banner: Image;
+}
 
 interface BannerContextData {
   active: number;
   total: number;
-  projects: Document[];
+  projects: Project[];
   set(index: number): void;
   next(): void;
   prev(): void;
@@ -20,8 +36,8 @@ interface BannerContextData {
 
 const BannerContext = createContext<BannerContextData>({} as BannerContextData);
 
-const BannerProvider: React.FC<BannerContextData> = ({ children }) => {
-  const [projects, setProjects] = useState([]);
+const BannerProvider: React.FC = ({ children }) => {
+  const [projects, setProjects] = useState<Project[]>([]);
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -29,7 +45,13 @@ const BannerProvider: React.FC<BannerContextData> = ({ children }) => {
       const { results } = await client().query([
         Prismic.Predicates.at('document.type', 'project'),
       ]);
-      setProjects(results);
+      const projectData: Project[] = results.map(result => ({
+        ...result.data,
+        name: result.data.name[0].text,
+        slug: result.uid,
+      }));
+
+      setProjects(projectData);
     };
     getProjects();
   }, []);
@@ -61,4 +83,12 @@ const BannerProvider: React.FC<BannerContextData> = ({ children }) => {
   );
 };
 
-export { BannerContext, BannerProvider };
+function useBanner(): BannerContextData {
+  const context = useContext(BannerContext);
+  if (!context) {
+    throw new Error('useBanner must be used within an BannerProvider');
+  }
+  return context;
+}
+
+export { useBanner, BannerProvider };

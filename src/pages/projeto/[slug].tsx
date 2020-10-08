@@ -3,7 +3,6 @@ import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Prismic from 'prismic-javascript';
 
 import Emoji from '~/components/Emoji';
 import HomeBack from '~/components/HomeBack';
@@ -39,13 +38,20 @@ interface ProjectProps {
   project: Project;
   isHome?: boolean;
 }
+
+interface StaticProps {
+  params: {
+    slug: string;
+  };
+}
+
 const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
   const { isFallback } = useRouter();
 
   if (isFallback) return <p>carreganco...</p>;
 
   return (
-    <Container exit="exit" animate="animate" initial="initial">
+    <Container>
       <SEO
         title=""
         description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis culpa
@@ -100,27 +106,27 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [{ params: { slug: 'jeep' } }, { params: { slug: 'game-7' } }],
+    paths: [{ params: { slug: 'jeep' } }, { params: { slug: 'uga' } }],
     fallback: true,
   };
 };
 
-export const getStaticProps: GetStaticProps = async ctx => {
+export const getStaticProps: GetStaticProps = async (ctx: StaticProps) => {
   const { slug } = ctx.params;
 
-  const { results } = await client().query(
-    Prismic.Predicates.at('my.project.uid', slug),
-  );
+  const result = await client().getByUID('project', slug, {
+    lang: 'pt-br',
+  });
 
-  const projectData: Project[] = results.map(result => ({
+  const projectData: Project = {
     ...result.data,
     name: result.data.name[0].text,
     slug: result.uid,
-  }));
+  };
 
   return {
     props: {
-      project: projectData[0],
+      project: projectData,
     },
   };
 };

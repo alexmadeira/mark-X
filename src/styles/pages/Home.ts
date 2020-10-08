@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import { motion } from 'framer-motion';
-
-export const Container = styled(motion.div)`
+export const Container = styled.div`
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -11,7 +9,7 @@ export const Container = styled(motion.div)`
   background: ${props => props.theme.colors.Black};
 `;
 
-export const Nav = styled(motion.div)`
+export const Nav = styled.div`
   position: fixed;
   right: 0;
   top: 50%;
@@ -80,7 +78,7 @@ export const Next = styled.span`
   }
 `;
 
-export const Project = styled(motion.div)`
+export const Project = styled.div`
   position: relative;
   overflow: hidden;
   min-width: 100vw;

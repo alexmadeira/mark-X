@@ -16,43 +16,18 @@ import {
   Next,
 } from '~/styles/pages/Home';
 
-const trasition = {
-  initial: {
-    x: '-35vw',
-  },
-  animate: {
-    x: 0,
-    transition: {
-      duration: 0.4,
-      ease: 'easeInOut',
-    },
-  },
-  exit: {
-    x: '-35vw',
-    transition: {
-      duration: 0.4,
-      ease: 'easeInOut',
-    },
-  },
-};
-
 const Home: React.FC = () => {
   const { projects, total, active, prev, next } = useBanner();
 
   return (
-    <Container exit="exit" animate="animate" initial="initial">
+    <Container>
       <SEO
         title="Alex Madeira"
         description="asdasdad asdasdasdasdasd adad"
         shoudExcludeTitleSufix
       />
       <Banner />
-      <Nav
-        data-testid="Nav"
-        exit={{ opacity: 0 }}
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1 }}
-      >
+      <Nav>
         <NavButton
           onClick={() => {
             next();
@@ -72,7 +47,7 @@ const Home: React.FC = () => {
         </NavButton>
       </Nav>
       <Link href={`/projeto/${projects[active]?.slug}`}>
-        <Project variants={trasition}>
+        <Project>
           <ProjectBanner project={projects[active]} hiddenTitle />
         </Project>
       </Link>

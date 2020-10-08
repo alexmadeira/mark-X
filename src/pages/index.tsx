@@ -1,9 +1,11 @@
-import Link from 'next/link';
 import React from 'react';
-import SEO from '~/components/SEO';
-import Banner from '~/components/Banner';
-import { useBanner } from '~/context/BannerContext';
 
+import Link from 'next/link';
+
+import Banner from '~/components/Banner';
+import ProjectBanner from '~/components/Project/Banner';
+import SEO from '~/components/SEO';
+import { useBanner } from '~/context/BannerContext';
 import {
   Container,
   Project,
@@ -13,8 +15,6 @@ import {
   Prev,
   Next,
 } from '~/styles/pages/Home';
-
-import ProjectBanner from '~/components/Project/Banner';
 
 const trasition = {
   initial: {

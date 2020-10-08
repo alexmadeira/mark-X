@@ -1,8 +1,15 @@
-import Prismic from 'prismic-javascript';
 import React from 'react';
+
+import { GetStaticProps, GetStaticPaths } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import Prismic from 'prismic-javascript';
+
+import Emoji from '~/components/Emoji';
+import HomeBack from '~/components/HomeBack';
+import Banner from '~/components/Project/Banner';
+import SEO from '~/components/SEO';
+import client from '~/lib/prismic';
 import {
   Container,
   Header,
@@ -12,12 +19,6 @@ import {
   NextProject,
   A,
 } from '~/styles/pages/Projeto';
-
-import SEO from '~/components/SEO';
-import HomeBack from '~/components/HomeBack';
-import Emoji from '~/components/Emoji';
-import Banner from '~/components/Project/Banner';
-import client from '~/lib/prismic';
 
 interface Image {
   alt: string | null;

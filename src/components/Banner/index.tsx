@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Emoji from '~/components/Emoji';
 import { useBanner } from '~/context/BannerContext';
 

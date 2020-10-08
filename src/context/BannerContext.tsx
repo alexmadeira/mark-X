@@ -1,4 +1,3 @@
-import Prismic from 'prismic-javascript';
 import React, {
   useEffect,
   createContext,
@@ -7,6 +6,9 @@ import React, {
   useMemo,
   useContext,
 } from 'react';
+
+import Prismic from 'prismic-javascript';
+
 import client from '~/lib/prismic';
 
 interface Image {

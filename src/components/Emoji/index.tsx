@@ -1,6 +1,7 @@
 import React from 'react';
 
 import emojis from '~/assets/emojis/2.svg';
+
 import { Container } from './styles';
 
 const Emoji: React.FC = () => {

@@ -1,12 +1,15 @@
-import React from 'react';
-import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
+
+import React from 'react';
+
 import { AnimatePresence } from 'framer-motion';
+import { AppProps } from 'next/app';
+
+import Footer from '~/components/Footer';
+import Menu from '~/components/Menu';
+import { BannerProvider } from '~/context/BannerContext';
 import GlobalStyle from '~/styles/GlobalStyle';
 import theme from '~/styles/theme';
-import Menu from '~/components/Menu';
-import Footer from '~/components/Footer';
-import { BannerProvider } from '~/context/BannerContext';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return (

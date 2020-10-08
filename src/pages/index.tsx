@@ -1,7 +1,10 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
+import PrismicDom from 'prismic-dom';
 import Emoji from '~/components/Emoji';
 import SEO from '~/components/SEO';
+import { BannerContext } from '~/context/BannerContext';
+
 import {
   Container,
   Banner,
@@ -21,7 +24,7 @@ import {
   Next,
 } from '~/styles/pages/Home';
 
-import ProjectBanner from './projeto/Banner';
+import ProjectBanner from '~/components/Project/Banner';
 
 const trasition = {
   initial: {
@@ -44,6 +47,14 @@ const trasition = {
 };
 
 const Home: React.FC = () => {
+  const { projects, total, active, prev, next } = useContext(BannerContext);
+  const project = projects[active]?.data;
+
+  if (!project) {
+    return null;
+  }
+  console.log(project);
+
   return (
     <Container exit="exit" animate="animate" initial="initial">
       <SEO
@@ -51,6 +62,7 @@ const Home: React.FC = () => {
         description="asdasdad asdasdasdasdasd adad"
         shoudExcludeTitleSufix
       />
+
       <Banner variants={trasition}>
         <Spotlight>
           <Title>
@@ -62,7 +74,7 @@ const Home: React.FC = () => {
         </Spotlight>
         <ProjectInformation>
           <ProjectName>
-            Game7
+            {PrismicDom.RichText.asText(project.name)}
             <ProjectType>E-Commerce</ProjectType>
           </ProjectName>
           <Timer percent={35} delay={200} />
@@ -78,14 +90,21 @@ const Home: React.FC = () => {
         initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
       >
-        <NavButton>
+        <NavButton
+          onClick={() => {
+            next();
+          }}
+        >
           <Next />
         </NavButton>
         <Step>
-          <strong>1/</strong>
-          {4}
+          {active + 1}/{total}
         </Step>
-        <NavButton>
+        <NavButton
+          onClick={() => {
+            prev();
+          }}
+        >
           <Prev />
         </NavButton>
       </Nav>

@@ -12,7 +12,7 @@ import {
 import SEO from '~/components/SEO';
 import HomeBack from '~/components/HomeBack';
 import Emoji from '~/components/Emoji';
-import Banner from './Banner';
+import Banner from '~/components/Project/Banner';
 
 interface ProjectProps {
   isHome?: boolean;

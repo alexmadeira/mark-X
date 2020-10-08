@@ -6,6 +6,7 @@ import GlobalStyle from '~/styles/GlobalStyle';
 import theme from '~/styles/theme';
 import Menu from '~/components/Menu';
 import Footer from '~/components/Footer';
+import { BannerProvider } from '~/context/BannerContext';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return (
@@ -13,9 +14,11 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
       <GlobalStyle />
       <Menu />
       <Footer />
-      <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} key={router.route} />
-      </AnimatePresence>
+      <BannerProvider>
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
+      </BannerProvider>
     </ThemeProvider>
   );
 };

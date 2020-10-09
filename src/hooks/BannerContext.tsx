@@ -39,6 +39,8 @@ interface BannerContextData {
   set(index: number): void;
   next(): void;
   prev(): void;
+  pause(): void;
+  start(): void;
 }
 
 const BannerContext = createContext<BannerContextData>({} as BannerContextData);
@@ -63,6 +65,21 @@ const BannerProvider: React.FC = ({ children }) => {
       active.current + 1 === total.current ? 0 : active.current + 1;
     set(nextBanner);
   }, [active, total, set]);
+
+  const prev = useCallback(() => {
+    const prevBanner =
+      active.current - 1 < 0 ? total.current + 1 : active.current - 1;
+    set(prevBanner);
+  }, [active, set, total]);
+
+  const pause = useCallback(() => {
+    clearTimeout(timeOut.current);
+  }, []);
+
+  const start = useCallback(() => {
+    clearTimeout(timeOut.current);
+    clock();
+  }, []);
 
   const addPercent = useCallback(
     (newPercent: number | boolean = false) => {
@@ -92,19 +109,6 @@ const BannerProvider: React.FC = ({ children }) => {
     }, timeOutDelay);
   }, [addTimer]);
 
-  const prev = useCallback(() => {
-    const prevBanner =
-      active.current - 1 < 0 ? total.current + 1 : active.current - 1;
-    set(prevBanner);
-  }, [active, set, total]);
-
-  useEffect(() => {
-    clock();
-  }, []);
-  useEffect(() => {
-    console.log({ percent, timeOut: timeOut.current });
-  }, [percent]);
-
   useEffect(() => {
     const getProjects = async () => {
       const { results } = await client().query([
@@ -124,6 +128,10 @@ const BannerProvider: React.FC = ({ children }) => {
     getProjects();
   }, []);
 
+  useEffect(() => {
+    start();
+  }, [start]);
+
   return (
     <BannerContext.Provider
       value={{
@@ -134,6 +142,8 @@ const BannerProvider: React.FC = ({ children }) => {
         set,
         next,
         prev,
+        pause,
+        start,
       }}
     >
       {children}

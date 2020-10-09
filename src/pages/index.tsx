@@ -17,12 +17,12 @@ import {
 } from '~/styles/pages/Home';
 
 const Home: React.FC = () => {
-  const { projects, total, active, prev, next } = useBanner();
+  const { projects, total, active, prev, next, pause, start } = useBanner();
 
   return (
     <Container>
       <SEO
-        title="Alex Madeira"
+        title="Alex Madeira | Desenvolvedor Web"
         description="asdasdad asdasdasdasdasd adad"
         shoudExcludeTitleSufix
       />
@@ -47,9 +47,18 @@ const Home: React.FC = () => {
         </NavButton>
       </Nav>
       <Link href={`/projeto/${projects[active]?.slug}`}>
-        <Project>
-          <ProjectBanner project={projects[active]} hiddenTitle />
-        </Project>
+        <a>
+          <Project
+            onMouseEnter={() => {
+              pause();
+            }}
+            onMouseLeave={() => {
+              start();
+            }}
+          >
+            <ProjectBanner project={projects[active]} hiddenTitle />
+          </Project>
+        </a>
       </Link>
     </Container>
   );

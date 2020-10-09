@@ -43,10 +43,11 @@ export const HeaderDescription = styled.p`
 export const Spotlight = styled.div`
   overflow: hidden;
   width: 100%;
-  height: 100vh;
+  height: 85vh;
   margin-bottom: calc(${props => props.theme.spaces.BaseMargin} * 5);
   img {
     opacity: 1;
+    width: 100%;
   }
 `;
 
@@ -59,34 +60,4 @@ export const NextProject = styled.div`
   margin-bottom: calc(${props => props.theme.spaces.BaseMargin}*12);
   grid-template-columns: 1fr 1fr;
   grid-gap: ${props => props.theme.spaces.BaseMargin};
-`;
-
-export const A = styled.a`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  color: ${props => props.theme.colors.White};
-  background: ${props => props.theme.colors.Black};
-  font-weight: bold;
-  font-size: 6rem;
-  position: relative;
-
-  img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    opacity: 0.2;
-    transition: opacity 500ms ease;
-  }
-  &:hover {
-    img {
-      opacity: 0.7;
-    }
-  }
 `;

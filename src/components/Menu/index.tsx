@@ -16,8 +16,8 @@ const Menu: React.FC = () => {
 
   return (
     <Container>
-      <Hamburguer onClick={toggleMenu} />
-      <MenuContainer>
+      <Hamburguer onClick={toggleMenu} className={open && 'open'} />
+      <MenuContainer className={open && 'open'}>
         <MenuItem>
           <Link href="/">
             <a href="/" onClick={() => setOpen(false)}>

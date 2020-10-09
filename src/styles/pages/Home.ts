@@ -84,4 +84,5 @@ export const Project = styled.div`
   min-width: 100vw;
   height: 100vh;
   opacity: 0.8;
+  cursor: pointer;
 `;

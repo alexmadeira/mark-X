@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Prismic from 'prismic-javascript';
 
 import Emoji from '~/components/Emoji';
 import HomeBack from '~/components/HomeBack';
+import NavProject from '~/components/NavProject';
 import Banner from '~/components/Project/Banner';
 import SEO from '~/components/SEO';
 import client from '~/lib/prismic';
@@ -16,7 +17,6 @@ import {
   HeaderDescription,
   Spotlight,
   NextProject,
-  A,
 } from '~/styles/pages/Projeto';
 
 interface Image {
@@ -34,9 +34,16 @@ interface Project {
   name: string;
   banner: Image;
   logo: Image;
+  preview: Image;
   type: string;
   shortdescription: string;
   description: string;
+  next: {
+    slug: string;
+  };
+  prev: {
+    slug: string;
+  };
 }
 
 interface ProjectProps {
@@ -63,44 +70,30 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
       </HomeBack>
       <Banner project={project} />
       <Header>
-        <HeaderLogo src={project.logo.url} alt={project.name} />
+        <HeaderLogo src={project.logo.url} alt={`${project.name} Logo`} />
         <HeaderDescription>{project.description}</HeaderDescription>
       </Header>
 
       <Spotlight>
-        <img
-          src="http://images.ctfassets.net/kg9jzweoze7j/xj2Z1DYo3yPaVKMD6qIKa/55afcd802f6a140101d22d60e47632eb/Renegade-1024x682.jpg"
-          alt="nome"
-        />
+        <img src={project.preview.url} alt={`${project.name} Preview`} />
       </Spotlight>
 
       <NextProject>
-        <Link href="/projeto/s">
-          <A>
-            <img
-              src="http://images.ctfassets.net/kg9jzweoze7j/xj2Z1DYo3yPaVKMD6qIKa/55afcd802f6a140101d22d60e47632eb/Renegade-1024x682.jpg"
-              alt=""
-            />
-            Nome
-          </A>
-        </Link>
-        <Link href="/projeto/s">
-          <A>
-            <img
-              src="http://images.ctfassets.net/kg9jzweoze7j/xj2Z1DYo3yPaVKMD6qIKa/55afcd802f6a140101d22d60e47632eb/Renegade-1024x682.jpg"
-              alt=""
-            />
-            Nome
-          </A>
-        </Link>
+        <NavProject slug={project.next.slug} />
+        <NavProject slug={project.prev.slug} />
       </NextProject>
     </Container>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const { results } = await client().query(
+    [Prismic.Predicates.at('document.type', 'project')],
+    { pageSize: 2 },
+  );
+  const paths = results.map(result => ({ params: { slug: result.uid } }));
   return {
-    paths: [{ params: { slug: 'jeep' } }, { params: { slug: 'uga' } }],
+    paths,
     fallback: true,
   };
 };
@@ -115,6 +108,8 @@ export const getStaticProps: GetStaticProps = async (ctx: StaticProps) => {
   const projectData: Project = {
     ...result.data,
     name: result.data.name[0].text,
+    shortdescription: result.data.shortdescription[0].text,
+    description: result.data.description[0].text,
     slug: result.uid,
   };
 
@@ -124,4 +119,5 @@ export const getStaticProps: GetStaticProps = async (ctx: StaticProps) => {
     },
   };
 };
+
 export default Projeto;

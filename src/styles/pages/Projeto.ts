@@ -44,7 +44,7 @@ export const Spotlight = styled.div`
   overflow: hidden;
   width: 100%;
   height: 85vh;
-  margin-bottom: calc(${props => props.theme.spaces.BaseMargin} * 5);
+  margin: calc(${props => props.theme.spaces.BaseMargin} * 5) 0;
   img {
     opacity: 1;
     width: 100%;

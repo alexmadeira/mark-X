@@ -6,6 +6,7 @@ import Prismic from 'prismic-javascript';
 
 import Emoji from '~/components/Emoji';
 import HomeBack from '~/components/HomeBack';
+import InstagramBox from '~/components/InstagramBox';
 import NavProject from '~/components/NavProject';
 import Banner from '~/components/Project/Banner';
 import SEO from '~/components/SEO';
@@ -36,6 +37,7 @@ interface Project {
   logo: Image;
   preview: Image;
   type: string;
+  instagram: string;
   shortdescription: string;
   description: string;
   next: {
@@ -73,7 +75,7 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
         <HeaderLogo src={project.logo.url} alt={`${project.name} Logo`} />
         <HeaderDescription>{project.description}</HeaderDescription>
       </Header>
-
+      <InstagramBox userName={project.instagram} />
       <Spotlight>
         <img src={project.preview.url} alt={`${project.name} Preview`} />
       </Spotlight>
@@ -110,6 +112,7 @@ export const getStaticProps: GetStaticProps = async (ctx: StaticProps) => {
     name: result.data.name[0].text,
     shortdescription: result.data.shortdescription[0].text,
     description: result.data.description[0].text,
+    instagram: result.data.instagram[0].text,
     slug: result.uid,
   };
 

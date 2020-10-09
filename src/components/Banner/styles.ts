@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { saturate, tint } from 'polished';
+
 import { motion } from 'framer-motion';
+import { saturate, tint } from 'polished';
 
 export const Container = styled(motion.div)`
   background: ${props => saturate(0.2, tint(0.5, props.theme.colors.Base))};
@@ -42,24 +43,6 @@ export const SubTitle = styled.h2`
     ${props => props.theme.fonts.Sizes.Banner.highlighted} + 10px
   );
   text-transform: uppercase;
-`;
-
-export const Timer = styled.div<{ delay: number; percent: number }>`
-  background: ${props => props.theme.colors.White};
-  width: 100%;
-  height: 1px;
-  position: relative;
-  &::after {
-    content: '';
-    transition: width ${props => props.delay}ms linear;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translate(0, -50%);
-    background: ${props => props.theme.colors.White};
-    width: ${props => props.percent}%;
-    height: 5px;
-  }
 `;
 
 export const ProjectInformation = styled.div`

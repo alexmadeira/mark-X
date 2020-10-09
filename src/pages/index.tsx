@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Banner from '~/components/Banner';
 import ProjectBanner from '~/components/Project/Banner';
 import SEO from '~/components/SEO';
-import { useBanner } from '~/context/BannerContext';
+import { useBanner } from '~/hooks/BannerContext';
 import {
   Container,
   Project,

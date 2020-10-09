@@ -30,8 +30,13 @@ interface Image {
 }
 
 interface Project {
+  slug: string;
   name: string;
   banner: Image;
+  logo: Image;
+  type: string;
+  shortdescription: string;
+  description: string;
 }
 
 interface ProjectProps {
@@ -52,25 +57,14 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
 
   return (
     <Container>
-      <SEO
-        title=""
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis culpa
-        maiores est, facilis velit odit praesentium odio doloribus voluptas
-        laborum animi quasi corporis quae a officia. Architecto aut magni
-        repellat."
-      />
+      <SEO title={project.name} description={project.shortdescription} />
       <HomeBack isHome={isHome}>
         <Emoji />
       </HomeBack>
       <Banner project={project} />
       <Header>
-        <HeaderLogo src="//images.ctfassets.net/kg9jzweoze7j/1DzUyvchxaVZitnLOOoLRM/ef916c1ab6c73f1b2f83ae90d35f5f8b/1548852311024-alex-madeira-smiles-logo.png" />
-        <HeaderDescription>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis culpa
-          maiores est, facilis velit odit praesentium odio doloribus voluptas
-          laborum animi quasi corporis quae a officia. Architecto aut magni
-          repellat.
-        </HeaderDescription>
+        <HeaderLogo src={project.logo.url} alt={project.name} />
+        <HeaderDescription>{project.description}</HeaderDescription>
       </Header>
 
       <Spotlight>

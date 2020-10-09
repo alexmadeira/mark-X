@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import Emoji from '~/components/Emoji';
-import { useBanner } from '~/context/BannerContext';
+import { useBanner } from '~/hooks/BannerContext';
 
 import {
   Container,
   Spotlight,
   Title,
   SubTitle,
-  Timer,
   ProjectInformation,
   ProjectName,
   ProjectType,
   ProjectDescription,
 } from './styles';
+import Timer from './Timer';
 
 const trasition = {
   initial: {
@@ -53,17 +53,14 @@ const Banner: React.FC = () => {
       </Spotlight>
       <ProjectInformation>
         <ProjectName>
-          {project ? project.name : ''}
-          <ProjectType>E-Commerce</ProjectType>
+          {project.name}
+          <ProjectType>{project.type}</ProjectType>
         </ProjectName>
-        <Timer percent={35} delay={200} />
-        <ProjectDescription>
-          Alex Madeira Alex Madeira Alex Madeira Alex Madeira Alex Madeira Alex
-          Madeira Alex Madeira
-        </ProjectDescription>
+        <Timer />
+        <ProjectDescription>{project.shortdescription}</ProjectDescription>
       </ProjectInformation>
     </Container>
   );
 };
 
-export default Banner;
+export default memo(Banner);

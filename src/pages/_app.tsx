@@ -6,7 +6,7 @@ import { AppProps } from 'next/app';
 
 import Footer from '~/components/Footer';
 import Menu from '~/components/Menu';
-import { BannerProvider } from '~/context/BannerContext';
+import { BannerProvider } from '~/hooks/BannerContext';
 import GlobalStyle from '~/styles/GlobalStyle';
 import theme from '~/styles/theme';
 

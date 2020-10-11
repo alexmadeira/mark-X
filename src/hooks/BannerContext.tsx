@@ -68,7 +68,7 @@ const BannerProvider: React.FC = ({ children }) => {
 
   const prev = useCallback(() => {
     const prevBanner =
-      active.current - 1 < 0 ? total.current + 1 : active.current - 1;
+      active.current - 1 < 0 ? total.current - 1 : active.current - 1;
     set(prevBanner);
   }, [active, set, total]);
 

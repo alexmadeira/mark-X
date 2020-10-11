@@ -6,6 +6,7 @@ import Banner from '~/components/Banner';
 import ProjectBanner from '~/components/Project/Banner';
 import SEO from '~/components/SEO';
 import { useBanner } from '~/hooks/BannerContext';
+import { FadeIn, variantesBanner } from '~/services/variantes';
 import {
   Container,
   Project,
@@ -14,13 +15,14 @@ import {
   Step,
   Prev,
   Next,
+  ProjectBox,
 } from '~/styles/pages/Home';
 
 const Home: React.FC = () => {
   const { projects, total, active, prev, next, pause, start } = useBanner();
 
   return (
-    <Container>
+    <Container animate="animate" exit="exit" initial="initial">
       <SEO
         title="Alex Madeira | Desenvolvedor Web"
         description="asdasdad asdasdasdasdasd adad"
@@ -49,6 +51,7 @@ const Home: React.FC = () => {
       <Link href={`/projeto/${projects[active]?.slug}`}>
         <a>
           <Project
+            variants={variantesBanner}
             onMouseEnter={() => {
               pause();
             }}
@@ -56,7 +59,9 @@ const Home: React.FC = () => {
               start();
             }}
           >
-            <ProjectBanner project={projects[active]} hiddenTitle />
+            <ProjectBox key={projects[active]?.slug} variants={FadeIn}>
+              <ProjectBanner project={projects[active]} hiddenTitle />
+            </ProjectBox>
           </Project>
         </a>
       </Link>

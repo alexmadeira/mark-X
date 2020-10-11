@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 
 import Emoji from '~/components/Emoji';
 import { useBanner } from '~/hooks/BannerContext';
+import { variantesBanner } from '~/services/variantes';
 
 import {
   Container,
@@ -15,26 +16,6 @@ import {
 } from './styles';
 import Timer from './Timer';
 
-const trasition = {
-  initial: {
-    x: '-35vw',
-  },
-  animate: {
-    x: 0,
-    transition: {
-      duration: 0.4,
-      ease: 'easeInOut',
-    },
-  },
-  exit: {
-    x: '-35vw',
-    transition: {
-      duration: 0.4,
-      ease: 'easeInOut',
-    },
-  },
-};
-
 const Banner: React.FC = () => {
   const { projects, active } = useBanner();
   const project = projects[active];
@@ -42,7 +23,7 @@ const Banner: React.FC = () => {
   if (!project) return null;
 
   return (
-    <Container variants={trasition}>
+    <Container variants={variantesBanner}>
       <Spotlight>
         <Title>
           <Emoji />

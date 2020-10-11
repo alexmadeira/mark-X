@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+import { motion } from 'framer-motion';
+
+export const Container = styled(motion.div)`
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -78,7 +80,7 @@ export const Next = styled.span`
   }
 `;
 
-export const Project = styled.div`
+export const Project = styled(motion.div)`
   position: relative;
   overflow: hidden;
   min-width: 100vw;
@@ -86,3 +88,5 @@ export const Project = styled.div`
   opacity: 0.8;
   cursor: pointer;
 `;
+
+export const ProjectBox = styled(motion.div)``;

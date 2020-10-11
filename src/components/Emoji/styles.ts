@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.figure`
-  color: #ff0;
+  &.light {
+    color: ${props => props.theme.colors.logo.light};
+  }
+  &.dark {
+    color: ${props => props.theme.colors.logo.dark};
+  }
 `;

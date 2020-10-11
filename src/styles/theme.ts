@@ -3,6 +3,10 @@ const theme = {
     White: '#FFFFFF',
     Black: '#000000',
     Base: '#06c',
+    logo: {
+      dark: '#006',
+      light: '#06c',
+    },
   },
   spaces: {
     BasePadding: '10px',

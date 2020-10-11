@@ -69,7 +69,7 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
     <Container>
       <SEO title={project.name} description={project.shortdescription} />
       <HomeBack isHome={isHome}>
-        <Emoji />
+        <Emoji dark={project.emoji} />
       </HomeBack>
       <Banner project={project} />
       <Header>
@@ -121,6 +121,7 @@ export const getStaticProps: GetStaticProps = async (ctx: StaticProps) => {
     props: {
       project: projectData,
     },
+    revalidate: true,
   };
 };
 

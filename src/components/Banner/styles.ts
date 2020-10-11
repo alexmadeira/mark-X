@@ -31,7 +31,8 @@ export const Title = styled.h1`
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  img {
+  figure {
+    transform: rotate(-25deg);
     width: 12.5rem;
   }
 `;

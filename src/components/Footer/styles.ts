@@ -5,6 +5,16 @@ export const Container = styled.div`
   bottom: calc((${props => props.theme.spaces.BasePadding} * 3) + 10px);
   left: calc(${props => props.theme.spaces.BaseMargin}* 3);
   z-index: 26;
+  color: ${props => props.theme.colors.White};
+  &.bodyDark {
+    color: ${props => props.theme.colors.Black};
+  }
+  &.navLight {
+    color: ${props => props.theme.colors.White};
+  }
+  &.footerDark {
+    color: ${props => props.theme.colors.Black};
+  }
 `;
 
 export const Social = styled.ul`
@@ -18,7 +28,7 @@ export const SocialItem = styled.li`
   margin: ${props => props.theme.spaces.BaseMargin}
     calc(${props => props.theme.spaces.BaseMargin} * 2) 0 0;
   a {
-    color: ${props => props.theme.colors.Black};
+    color: currentColor;
     font-size: 2rem;
     svg {
       transition: all 0.3s ease;

@@ -34,6 +34,7 @@ interface Project {
   slug: string;
   name: string;
   banner: Image;
+  emoji: boolean;
   logo: Image;
   preview: Image;
   type: string;

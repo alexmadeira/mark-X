@@ -1,12 +1,16 @@
 import React from 'react';
 
-import emojis from '~/assets/emojis/2.svg';
+import { useEmoji } from '~/hooks/useEmoji';
 
 import { Container } from './styles';
 
-const Emoji: React.FC = () => {
-  // const randonNember = useMemo(() => Math.floor(Math.random() * 2) + 1, []);
-  return <Container src={emojis} />;
+interface EmojProps {
+  dark?: boolean;
+}
+const Emoji: React.FC<EmojProps> = ({ dark = true }) => {
+  const { random } = useEmoji();
+
+  return <Container src={random} className={dark && 'dark'} />;
 };
 
 export default Emoji;

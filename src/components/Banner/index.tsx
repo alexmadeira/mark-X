@@ -46,7 +46,7 @@ const Banner: React.FC = () => {
       <Spotlight>
         <Title>
           <Emoji />
-          <strong>Alex</strong>
+          <strong>Alex--</strong>
           <strong>Madeira</strong>
         </Title>
         <SubTitle>Desenvolvedor Web</SubTitle>

@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 
-import { useEmoji } from '~/hooks/useEmoji';
-
+import Emojis1 from '../../assets/emojis/emoji1.svg';
+import Emojis2 from '../../assets/emojis/emoji2.svg';
 import { Container } from './styles';
 
 interface EmojProps {
   dark?: boolean;
 }
-const Emoji: React.FC<EmojProps> = ({ dark = true }) => {
-  const { random } = useEmoji();
+const Emoji: React.FC<EmojProps> = () => {
+  const random = useRef(0 + Math.floor((2 - 0) * Math.random()));
 
-  return <Container src={random} className={dark && 'dark'} />;
+  const Random = useCallback(() => {
+    switch (Number(random)) {
+      case 0:
+        return <Emojis1 />;
+      case 1:
+        return <Emojis2 />;
+      default:
+        return null;
+    }
+  }, []);
+
+  return (
+    <Container>
+      <Random />
+    </Container>
+  );
 };
 
 export default Emoji;

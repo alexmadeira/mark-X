@@ -10,6 +10,7 @@ interface InstagramBoxProps {
 }
 interface Media {
   node: {
+    id: string;
     display_url: string;
     thumbnail_src: string;
   };
@@ -39,7 +40,9 @@ const InstagramBox: React.FC<InstagramBoxProps> = ({ userName }) => {
         if (index > 5) {
           return null;
         }
-        return <Thumb src={media.node.display_url} alt="" />;
+        return (
+          <Thumb key={media.node.id} src={media.node.display_url} alt="" />
+        );
       })}
     </Container>
   );

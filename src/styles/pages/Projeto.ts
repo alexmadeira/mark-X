@@ -47,7 +47,10 @@ export const Spotlight = styled.div`
   margin: calc(${props => props.theme.spaces.BaseMargin} * 5) 0;
   img {
     opacity: 1;
+    object-fit: cover;
+    object-position: top;
     width: 100%;
+    height: 100%;
   }
 `;
 

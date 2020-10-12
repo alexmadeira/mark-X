@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { useViewportScroll, useTransform } from 'framer-motion';
 
@@ -38,9 +38,9 @@ const Banner: React.FC<BannerProps> = ({ hiddenTitle = false, project }) => {
     },
   );
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const element = containerRef.current;
-    setElementTop(element.offsetTop);
+    setElementTop(element?.offsetTop);
   }, [containerRef]);
 
   if (!project) {

@@ -38,7 +38,7 @@ const Home: React.FC = () => {
           <Next />
         </NavButton>
         <Step>
-          <strong>{active + 1}</strong>/{total}
+          <strong>{active.index + 1}</strong>/{total}
         </Step>
         <NavButton
           onClick={() => {
@@ -48,7 +48,7 @@ const Home: React.FC = () => {
           <Prev />
         </NavButton>
       </Nav>
-      <Link href={`/projeto/${projects[active]?.slug}`}>
+      <Link href={`/projeto/${projects[active.index]?.slug}`}>
         <a>
           <Project
             variants={variantesBanner}
@@ -59,8 +59,8 @@ const Home: React.FC = () => {
               start();
             }}
           >
-            <ProjectBox key={projects[active]?.slug} variants={FadeIn}>
-              <ProjectBanner project={projects[active]} hiddenTitle />
+            <ProjectBox key={projects[active.index]?.slug} variants={FadeIn}>
+              <ProjectBanner project={projects[active.index]} hiddenTitle />
             </ProjectBox>
           </Project>
         </a>

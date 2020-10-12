@@ -34,6 +34,7 @@ interface Project {
   slug: string;
   name: string;
   banner: Image;
+  id: string;
   emoji: boolean;
   logo: Image;
   preview: Image;
@@ -68,7 +69,7 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
   return (
     <Container>
       <SEO title={project.name} description={project.shortdescription} />
-      <HomeBack isHome={isHome}>
+      <HomeBack isHome={isHome} projectId={project.id}>
         <Emoji dark={project.emoji} />
       </HomeBack>
       <Banner project={project} />
@@ -90,10 +91,10 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { results } = await client().query(
-    [Prismic.Predicates.at('document.type', 'project')],
-    { pageSize: 2 },
-  );
+  const { results } = await client().query([
+    Prismic.Predicates.at('document.type', 'project'),
+    Prismic.Predicates.at('my.project.spotlight', true),
+  ]);
   const paths = results.map(result => ({ params: { slug: result.uid } }));
   return {
     paths,
@@ -115,6 +116,7 @@ export const getStaticProps: GetStaticProps = async (ctx: StaticProps) => {
     description: result.data.description[0].text,
     instagram: result.data.instagram[0].text,
     slug: result.uid,
+    id: result.id,
   };
 
   return {

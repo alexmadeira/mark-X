@@ -18,7 +18,7 @@ import Timer from './Timer';
 
 const Banner: React.FC = () => {
   const { projects, active } = useBanner();
-  const project = projects[active];
+  const project = projects[active.index];
 
   if (!project) return null;
 

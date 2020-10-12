@@ -23,6 +23,7 @@ interface Image {
 
 interface Project {
   slug: string;
+  id: string;
   name: string;
   banner: Image;
   logo: Image;
@@ -32,7 +33,10 @@ interface Project {
 }
 
 interface BannerContextData {
-  active: number;
+  active: {
+    index: number;
+    id: string;
+  };
   total: number;
   percent: number;
   projects: Project[];
@@ -41,6 +45,7 @@ interface BannerContextData {
   prev(): void;
   pause(): void;
   start(): void;
+  setById(projectId: string): void;
 }
 
 const BannerContext = createContext<BannerContextData>({} as BannerContextData);
@@ -53,12 +58,22 @@ const BannerProvider: React.FC = ({ children }) => {
   const total = useRef(0);
   const [percent, setPercent] = useState(0);
 
-  const set = useCallback(index => {
+  const set = useCallback((index: number) => {
     active.current = index;
     clearTimeout(timeOut.current);
     addPercent(-10);
     clock();
   }, []);
+
+  const setById = useCallback(
+    (projectId: string) => {
+      const index = projects.findIndex(project => project.id === projectId);
+      if (index > -1) {
+        set(index);
+      }
+    },
+    [projects, set],
+  );
 
   const next = useCallback(() => {
     const nextBanner =
@@ -113,6 +128,7 @@ const BannerProvider: React.FC = ({ children }) => {
     const getProjects = async () => {
       const { results } = await client().query([
         Prismic.Predicates.at('document.type', 'project'),
+        Prismic.Predicates.at('my.project.spotlight', true),
       ]);
 
       const projectData: Project[] = results.map(result => ({
@@ -120,6 +136,7 @@ const BannerProvider: React.FC = ({ children }) => {
         name: result.data.name[0].text,
         shortdescription: result.data.shortdescription[0].text,
         slug: result.uid,
+        id: result.id,
       }));
 
       total.current = projectData.length;
@@ -135,10 +152,14 @@ const BannerProvider: React.FC = ({ children }) => {
   return (
     <BannerContext.Provider
       value={{
-        active: active.current,
+        active: {
+          index: active.current,
+          id: 's',
+        },
         total: total.current,
         projects,
         percent,
+        setById,
         set,
         next,
         prev,

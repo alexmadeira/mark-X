@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
+
+import { useViewportScroll, useTransform } from 'framer-motion';
 
 import { Container, BannerImage, Title } from './styles';
 
@@ -23,13 +25,35 @@ interface BannerProps {
 }
 
 const Banner: React.FC<BannerProps> = ({ hiddenTitle = false, project }) => {
+  const containerRef = useRef(null);
+  const [elementTop, setElementTop] = useState(0);
+  const { scrollY } = useViewportScroll();
+
+  const bannerImage = useTransform(
+    scrollY,
+    [elementTop, elementTop + 1],
+    [0, -1],
+    {
+      clamp: false,
+    },
+  );
+
+  useLayoutEffect(() => {
+    const element = containerRef.current;
+    setElementTop(element.offsetTop);
+  }, [containerRef]);
+
   if (!project) {
     return null;
   }
 
   return (
-    <Container>
-      <BannerImage src={project.banner.url} alt="nome" />
+    <Container ref={containerRef}>
+      <BannerImage
+        src={project.banner.url}
+        alt="nome"
+        style={{ y: bannerImage }}
+      />
       {!hiddenTitle && (
         <Title
           exit={{ opacity: 0 }}

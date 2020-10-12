@@ -13,12 +13,13 @@ export const Container = styled.div`
   position: relative;
 `;
 
-export const BannerImage = styled.img`
-  width: 100%;
-  height: 100%;
+export const BannerImage = styled(motion.img)`
+  width: 100vw;
   object-fit: cover;
   opacity: 0.4;
   position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export const Title = styled(motion.h1)`

@@ -19,15 +19,9 @@ export const Header = styled.div`
 `;
 
 export const HeaderLogo = styled.img`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: calc(${props => props.theme.spaces.BasePadding}*3);
-  flex: 1;
   object-fit: contain;
-  @media (max-width: 780px) {
-    padding: calc(${props => props.theme.spaces.BasePadding});
-  }
+  margin: 0 auto;
+  display: block;
 `;
 
 export const HeaderDescription = styled.p`
@@ -46,7 +40,6 @@ export const Spotlight = styled.div`
   height: 85vh;
   margin: calc(${props => props.theme.spaces.BaseMargin} * 5) 0;
   img {
-    opacity: 1;
     object-fit: cover;
     object-position: top;
     width: 100%;

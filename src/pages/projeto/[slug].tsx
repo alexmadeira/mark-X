@@ -10,6 +10,7 @@ import InstagramBox from '~/components/InstagramBox';
 import NavProject from '~/components/NavProject';
 import Banner from '~/components/Project/Banner';
 import SEO from '~/components/SEO';
+import useShimmer from '~/hooks/useShimmer';
 import client from '~/lib/prismic';
 import {
   Container,
@@ -63,28 +64,54 @@ interface StaticProps {
 
 const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
   const { isFallback } = useRouter();
-
-  if (isFallback) return <p>carreganco...</p>;
+  const { Line: ShimmerLine, Image: ShimmerImage } = useShimmer();
 
   return (
     <Container>
-      <SEO title={project.name} description={project.shortdescription} />
-      <HomeBack isHome={isHome} projectId={project.id}>
-        <Emoji dark={project.emoji} />
+      {!isFallback && (
+        <SEO title={project.name} description={project.shortdescription} />
+      )}
+      <HomeBack isHome={isHome} projectId={project?.id}>
+        <Emoji dark={project?.emoji} />
       </HomeBack>
       <Banner project={project} />
       <Header>
-        <HeaderLogo src={project.logo.url} alt={`${project.name} Logo`} />
-        <HeaderDescription>{project.description}</HeaderDescription>
+        <HeaderLogo
+          src={project?.logo.url}
+          alt={`${project?.name} Logo`}
+          onLoad={e =>
+            (e.target as HTMLTextAreaElement).classList.add('loaded')
+          }
+        />
+
+        <HeaderDescription>
+          {isFallback ? (
+            <>
+              <ShimmerLine h="10px" w="100px" m="0 0 8px 0" flex />
+              <ShimmerLine h="10px" w="100px" m="0 0 8px 0" flex />
+              <ShimmerLine h="10px" w="100px" m="0 0 8px 0" flex />
+            </>
+          ) : (
+            project.shortdescription
+          )}
+        </HeaderDescription>
       </Header>
-      <InstagramBox userName={project.instagram} />
+      <InstagramBox userName={project?.instagram} />
       <Spotlight>
-        <img src={project.preview.url} alt={`${project.name} Preview`} />
+        <ShimmerImage h="85vh" w="100%">
+          <img
+            src={project?.preview.url}
+            alt={`${project?.name} Preview`}
+            onLoad={e =>
+              (e.target as HTMLTextAreaElement).classList.add('loaded')
+            }
+          />
+        </ShimmerImage>
       </Spotlight>
 
       <NextProject>
-        <NavProject slug={project.next.slug} />
-        <NavProject slug={project.prev.slug} />
+        <NavProject slug={project?.next.slug} />
+        <NavProject slug={project?.prev.slug} />
       </NextProject>
     </Container>
   );

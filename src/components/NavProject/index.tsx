@@ -49,7 +49,7 @@ const NavProject: React.FC<NavProjectProps> = ({ slug }) => {
     <Link href={`/projeto/${project?.slug}`}>
       <A>
         <img src={project.banner?.url} alt={`${project?.name} Banner`} />
-        {project.name}
+        {project?.name}
       </A>
     </Link>
   );

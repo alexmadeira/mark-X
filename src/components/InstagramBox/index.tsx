@@ -2,11 +2,13 @@
 import React from 'react';
 
 import { useFetch } from '~/hooks/useFetch';
+import useShimmer from '~/hooks/useShimmer';
 
 import { Container, Thumb } from './styles';
 
 interface InstagramBoxProps {
   userName: string;
+  limit?: number;
 }
 interface Media {
   node: {
@@ -27,7 +29,8 @@ interface InstagraProps {
   };
 }
 
-const InstagramBox: React.FC<InstagramBoxProps> = ({ userName }) => {
+const InstagramBox: React.FC<InstagramBoxProps> = ({ userName, limit = 5 }) => {
+  const { Image: ShimmerImage } = useShimmer();
   const { data } = useFetch<InstagraProps>(userName);
   if (!data) return null;
 
@@ -37,11 +40,19 @@ const InstagramBox: React.FC<InstagramBoxProps> = ({ userName }) => {
   return (
     <Container>
       {edges.map((media, index) => {
-        if (index > 5) {
-          return null;
-        }
+        if (index > limit) return null;
+
         return (
-          <Thumb key={media.node.id} src={media.node.display_url} alt="" />
+          <ShimmerImage>
+            <Thumb
+              key={media.node.id}
+              src={media.node.display_url}
+              alt=""
+              onLoad={e =>
+                (e.target as HTMLTextAreaElement).classList.add('loaded')
+              }
+            />
+          </ShimmerImage>
         );
       })}
     </Container>

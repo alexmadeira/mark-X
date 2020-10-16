@@ -13,6 +13,15 @@ export const Container = styled(motion.div)`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  @media (max-width: 1310px) {
+    width: 50vw;
+  }
+  @media (max-width: 980px) {
+    padding: ${props => props.theme.spaces.BasePadding};
+  }
+  @media (max-width: 800px) {
+    width: 100vw;
+  }
 `;
 
 export const Spotlight = styled.div`
@@ -20,6 +29,17 @@ export const Spotlight = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+  width: 100%;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+  @media (max-width: 780px) {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 500px;
+    margin-top: calc(${props => props.theme.spaces.BaseMargin} + 10px);
+    margin-left: calc(${props => props.theme.spaces.BaseMargin} + 10px);
+  }
 `;
 
 export const Title = styled.h1`
@@ -35,20 +55,78 @@ export const Title = styled.h1`
     transform: rotate(-25deg);
     width: 12.5rem;
   }
+  @media (max-width: 980px) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 845px) {
+    font-size: calc(
+      ${props => props.theme.fonts.Sizes.Banner.spotlight} - 2rem
+    );
+    line-height: calc(
+      ${props => props.theme.fonts.Sizes.Banner.spotlight} - 2rem
+    );
+    figure {
+      width: 11rem;
+    }
+  }
+  @media (max-width: 780px) {
+    width: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: ${props => props.theme.fonts.Sizes.Banner.spotlight};
+    line-height: calc(${props => props.theme.fonts.Sizes.Banner.spotlight});
+    figure {
+      width: 12.5rem;
+    }
+  }
 `;
 
 export const SubTitle = styled.h2`
   font-weight: 300;
+  text-transform: uppercase;
   font-size: ${props => props.theme.fonts.Sizes.Banner.highlighted};
   line-height: calc(
     ${props => props.theme.fonts.Sizes.Banner.highlighted} + 10px
   );
-  text-transform: uppercase;
+  @media (max-width: 980px) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 845px) {
+    font-size: calc(
+      ${props => props.theme.fonts.Sizes.Banner.highlighted} - 2rem
+    );
+    line-height: calc(
+      ${props => props.theme.fonts.Sizes.Banner.highlighted} + 10px - 2rem
+    );
+  }
+  @media (max-width: 780px) {
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: ${props => props.theme.fonts.Sizes.Banner.highlighted};
+    line-height: calc(
+      ${props => props.theme.fonts.Sizes.Banner.highlighted} + 10px
+    );
+  }
 `;
 
 export const ProjectInformation = styled.div`
   width: 80%;
   margin-top: calc(${props => props.theme.spaces.BaseMargin} * 10);
+  @media (max-width: 780px) {
+    width: calc(
+      100% - (${props => props.theme.spaces.BaseMargin} + 10px) -
+        (${props => props.theme.spaces.BasePadding} * 2)
+    );
+    margin: calc(${props => props.theme.spaces.BaseMargin} + 10px);
+    margin-bottom: calc(${props => props.theme.spaces.BaseMargin} + 20px);
+  }
 `;
 
 export const ProjectName = styled.h3`
@@ -93,4 +171,13 @@ export const ProjectDescription = styled.p`
   );
   transition: all 250ms ease;
   transition-delay: 430ms;
+
+  @media (max-width: 1310px) {
+    font-size: calc(
+      ${props => props.theme.fonts.Sizes.Banner.paragraph} + 1rem
+    );
+    line-height: calc(
+      ${props => props.theme.fonts.Sizes.Banner.paragraph} + 10px + 1rem
+    );
+  }
 `;

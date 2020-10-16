@@ -9,6 +9,9 @@ export const Container = styled(motion.div)`
   background: ${props => props.theme.colors.White};
   overflow: hidden;
   background: ${props => props.theme.colors.Black};
+  @media (max-width: 780px) {
+    flex-direction: column;
+  }
 `;
 
 export const Nav = styled.div`
@@ -22,6 +25,15 @@ export const Nav = styled.div`
   align-items: center;
   flex-direction: column;
   z-index: 10;
+  @media (max-width: 780px) {
+    right: 50%;
+    top: auto;
+    bottom: -15%;
+    transform: rotate(90deg) translate(0%, -15%);
+  }
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const Step = styled.div`
@@ -33,6 +45,19 @@ export const Step = styled.div`
   strong {
     font-size: ${props => props.theme.fonts.Sizes.Banner.actualStep};
     line-height: calc(${props => props.theme.fonts.Sizes.Banner.actualStep});
+  }
+  @media (max-width: 780px) {
+    transform: rotate(-90deg);
+    font-size: calc(${props => props.theme.fonts.Sizes.Banner.step} + 1.5rem);
+    line-height: calc(${props => props.theme.fonts.Sizes.Banner.step} + 1.5rem);
+    strong {
+      font-size: calc(
+        ${props => props.theme.fonts.Sizes.Banner.actualStep} + 1.5rem
+      );
+      line-height: calc(
+        ${props => props.theme.fonts.Sizes.Banner.actualStep} + 1.5rem
+      );
+    }
   }
 `;
 

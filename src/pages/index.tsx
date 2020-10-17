@@ -21,6 +21,8 @@ import {
 const Home: React.FC = () => {
   const { projects, total, active, prev, next, pause, start } = useBanner();
 
+  // h  640
+  // w  375
   return (
     <Container animate="animate" exit="exit" initial="initial">
       <SEO
@@ -60,7 +62,7 @@ const Home: React.FC = () => {
             }}
           >
             <ProjectBox key={projects[active.index]?.slug} variants={FadeIn}>
-              <ProjectBanner project={projects[active.index]} hiddenTitle />
+              <ProjectBanner project={projects[active.index]} isHome />
             </ProjectBox>
           </Project>
         </a>

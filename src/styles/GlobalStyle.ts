@@ -26,10 +26,16 @@ html{
   }
 }
 
+@media (max-width: 450px) {
+  html{
+    font-size:30%
+  }
+}
+
 html,
 body,
 #__next {
-  min-height: 100%;
+  height: 100%;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
@@ -37,6 +43,14 @@ body,
   z-index: 1;
   font-family: 'Roboto', sans-serif;
   text-size-adjust: none;
+}
+
+@media (max-width: 500px) {
+  html,
+  body,
+  #__next {
+    min-height: 100%;
+  }
 }
 
 body, input, button{

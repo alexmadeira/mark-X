@@ -5,12 +5,41 @@ import { motion } from 'framer-motion';
 export const Container = styled(motion.div)`
   display: flex;
   width: 100vw;
-  height: 100vh;
-  background: ${props => props.theme.colors.White};
+  height: 100%;
   overflow: hidden;
   background: ${props => props.theme.colors.Black};
+  /* background: radial-gradient(
+    circle,
+    rgba(255, 0, 255, 1) 2%,
+    rgba(0, 0, 255, 1) 5%,
+    rgba(255, 255, 0, 1) 8%,
+    rgba(31, 0, 255, 1) 12%,
+    rgba(0, 255, 194, 1) 17%,
+    rgba(255, 66, 0, 1) 22%,
+    rgba(255, 250, 0, 1) 27%,
+    rgba(255, 44, 0, 1) 33%,
+    rgba(6, 0, 255, 1) 36%,
+    rgba(160, 0, 255, 1) 43%,
+    rgba(0, 255, 194, 1) 47%,
+    rgba(250, 0, 255, 1) 53%,
+    rgba(255, 0, 54, 1) 60%,
+    rgba(119, 255, 0, 1) 68%,
+    rgba(0, 24, 255, 1) 73%,
+    rgba(255, 57, 0, 1) 81%,
+    rgba(237, 0, 255, 1) 86%,
+    rgba(251, 255, 0, 1) 93%,
+    rgba(14, 0, 255, 1) 97%
+  ); */
   @media (max-width: 780px) {
-    flex-direction: column;
+    display: block;
+  }
+
+  @media (max-width: 780px) and (max-height: 400px) {
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    width: 100vw;
+    height: 100%;
   }
 `;
 
@@ -32,6 +61,9 @@ export const Nav = styled.div`
     transform: rotate(90deg) translate(0%, -15%);
   }
   @media (max-width: 600px) {
+    display: none;
+  }
+  @media (max-width: 780px) and (max-height: 400px) {
     display: none;
   }
 `;
@@ -112,6 +144,20 @@ export const Project = styled(motion.div)`
   height: 100vh;
   opacity: 0.8;
   cursor: pointer;
+
+  @media (max-width: 780px) {
+    width: 100vw;
+    height: 40%;
+  }
+  @media (max-width: 600px) {
+    height: 30%;
+  }
+  @media (max-width: 780px) and (max-height: 400px) {
+    width: 100vw;
+    height: 180%;
+  }
 `;
 
-export const ProjectBox = styled(motion.div)``;
+export const ProjectBox = styled(motion.div)`
+  height: 100%;
+`;

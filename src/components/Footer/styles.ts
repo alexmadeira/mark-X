@@ -15,6 +15,10 @@ export const Container = styled.div`
   &.footerDark {
     color: ${props => props.theme.colors.Black};
   }
+
+  @media (max-width: 780px) and (max-height: 450px) {
+    display: none;
+  }
 `;
 
 export const Social = styled.ul`

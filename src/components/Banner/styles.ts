@@ -19,8 +19,19 @@ export const Container = styled(motion.div)`
   @media (max-width: 980px) {
     padding: ${props => props.theme.spaces.BasePadding};
   }
-  @media (max-width: 800px) {
+  @media (max-width: 780px) {
     width: 100vw;
+    height: 60%;
+  }
+
+  @media (max-width: 450px) {
+    width: 100vw;
+    height: 70%;
+  }
+
+  @media (max-width: 780px) and (max-height: 450px) {
+    height: 180%;
+    width: 55%;
   }
 `;
 
@@ -37,6 +48,7 @@ export const Spotlight = styled.div`
     flex-direction: row;
     align-items: flex-start;
     max-width: 500px;
+    width: calc(100% - (${props => props.theme.spaces.BaseMargin} + 10px));
     margin-top: calc(${props => props.theme.spaces.BaseMargin} + 10px);
     margin-left: calc(${props => props.theme.spaces.BaseMargin} + 10px);
   }
@@ -83,6 +95,17 @@ export const Title = styled.h1`
       width: 12.5rem;
     }
   }
+  @media (max-width: 780px) and (max-height: 450px) {
+    font-size: calc(
+      ${props => props.theme.fonts.Sizes.Banner.spotlight} - 2.5rem
+    );
+    line-height: calc(
+      ${props => props.theme.fonts.Sizes.Banner.spotlight} - 2.5rem
+    );
+  }
+  @media (max-width: 450px) {
+    height: 30%;
+  }
 `;
 
 export const SubTitle = styled.h2`
@@ -112,6 +135,14 @@ export const SubTitle = styled.h2`
     font-size: ${props => props.theme.fonts.Sizes.Banner.highlighted};
     line-height: calc(
       ${props => props.theme.fonts.Sizes.Banner.highlighted} + 10px
+    );
+  }
+  @media (max-width: 780px) and (max-height: 450px) {
+    font-size: calc(
+      ${props => props.theme.fonts.Sizes.Banner.highlighted} - 1rem
+    );
+    line-height: calc(
+      ${props => props.theme.fonts.Sizes.Banner.highlighted} + 10px - 1rem
     );
   }
 `;

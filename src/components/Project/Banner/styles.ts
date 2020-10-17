@@ -11,6 +11,9 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  &.home {
+    height: 100%;
+  }
 `;
 
 export const BannerImage = styled(motion.img)`

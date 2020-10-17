@@ -20,11 +20,11 @@ interface Project {
 }
 
 interface BannerProps {
-  hiddenTitle?: boolean;
+  isHome?: boolean;
   project: Project;
 }
 
-const Banner: React.FC<BannerProps> = ({ hiddenTitle = false, project }) => {
+const Banner: React.FC<BannerProps> = ({ isHome = false, project }) => {
   const containerRef = useRef(null);
   const [elementTop, setElementTop] = useState(0);
   const { scrollY } = useViewportScroll();
@@ -48,13 +48,13 @@ const Banner: React.FC<BannerProps> = ({ hiddenTitle = false, project }) => {
   }
 
   return (
-    <Container ref={containerRef}>
+    <Container ref={containerRef} className={isHome && 'home'}>
       <BannerImage
         src={project.banner.url}
         alt="nome"
         style={{ y: bannerImage }}
       />
-      {!hiddenTitle && (
+      {!isHome && (
         <Title
           exit={{ opacity: 0 }}
           animate={{ opacity: 1 }}

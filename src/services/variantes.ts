@@ -2,7 +2,7 @@ import { Variants } from 'framer-motion';
 
 export const variantesBanner: Variants = {
   initial: {
-    x: '-35vw',
+    x: '-40vw',
   },
   animate: {
     x: 0,
@@ -12,7 +12,7 @@ export const variantesBanner: Variants = {
     },
   },
   exit: {
-    x: '-35vw',
+    x: '-40vw',
     transition: {
       duration: 0.4,
       ease: 'easeInOut',

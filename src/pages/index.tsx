@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import Link from 'next/link';
 
@@ -6,7 +6,7 @@ import Banner from '~/components/Banner';
 import ProjectBanner from '~/components/Project/Banner';
 import SEO from '~/components/SEO';
 import { useBanner } from '~/hooks/BannerContext';
-import { FadeIn, variantesBanner } from '~/services/variantes';
+import { useVariants } from '~/hooks/useVariants';
 import {
   Container,
   Project,
@@ -17,14 +17,14 @@ import {
   Next,
   ProjectBox,
 } from '~/styles/pages/Home';
+import { FadeIn, variantesBanner } from '~/styles/variantes';
 
 const Home: React.FC = () => {
   const { projects, total, active, prev, next, pause, start } = useBanner();
+  const { animate, exit, initial } = useVariants();
 
-  // h  640
-  // w  375
   return (
-    <Container animate="animate" exit="exit" initial="initial">
+    <Container animate={animate} exit={exit} initial={initial}>
       <SEO
         title="Alex Madeira | Desenvolvedor Web"
         description="asdasdad asdasdasdasdasd adad"
@@ -71,4 +71,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default memo(Home);

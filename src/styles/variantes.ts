@@ -1,18 +1,35 @@
 import { Variants } from 'framer-motion';
 
 export const variantesBanner: Variants = {
-  initial: {
+  initialDesk: {
     x: '-40vw',
   },
-  animate: {
+  animateDesk: {
     x: 0,
     transition: {
       duration: 0.4,
       ease: 'easeInOut',
     },
   },
-  exit: {
+  exitDesk: {
     x: '-40vw',
+    transition: {
+      duration: 0.4,
+      ease: 'easeInOut',
+    },
+  },
+  initialMob: {
+    y: '-40vw',
+  },
+  animateMob: {
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: 'easeInOut',
+    },
+  },
+  exitMob: {
+    y: '-40vw',
     transition: {
       duration: 0.4,
       ease: 'easeInOut',

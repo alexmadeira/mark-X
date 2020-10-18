@@ -30,6 +30,7 @@ export function useDarkMode({ numerator, denominator }: Fractions): DarkMode {
   useEffect(() => {
     toogleMode();
   }, [toogleMode]);
+
   const className = toggle ? 'dark' : 'light';
 
   return { toggle, className };

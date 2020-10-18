@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import Emoji from '~/components/Emoji';
 import { useBanner } from '~/hooks/BannerContext';
 import useShimmer from '~/hooks/useShimmer';
-import { variantesBanner } from '~/services/variantes';
+import { variantesBanner } from '~/styles/variantes';
 
 import {
   Container,

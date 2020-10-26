@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { useWindow } from '~/hooks/useWindow';
+import { useWindow } from '~/hooks/WindowContext';
 
 interface Variants {
   animate: string;
@@ -14,14 +14,14 @@ interface variantTypes {
 }
 
 const variantList: variantTypes[] = [
-  { name: 'Desk', width: 780, height: 450 },
-  { name: 'Mob', width: 0, height: 0 },
+  { name: '1310', width: 1310, height: 450 },
+  { name: '780', width: 780, height: 450 },
+  { name: '450', width: 450, height: 450 },
+  { name: 'Mob', width: 0, height: 450 },
 ];
 
 export function useVariants(): Variants {
-  const [varinatSelect, setVarinatSelect] = useState({} as variantTypes);
-
-  const { width, height, loading } = useWindow();
+  const { width, height } = useWindow();
 
   const variant = useCallback(
     (): variantTypes =>
@@ -32,15 +32,15 @@ export function useVariants(): Variants {
     [height, width],
   );
 
-  useEffect(() => {
-    if (!loading) {
-      setVarinatSelect(variant);
-    }
-  }, [loading, variant]);
+  const [varinatSelect, setVarinatSelect] = useState(variant);
 
-  const animate = `animate${varinatSelect.name}`;
-  const exit = `exit${varinatSelect.name}`;
-  const initial = `initial${varinatSelect.name}`;
+  useEffect(() => {
+    setVarinatSelect(variant);
+  }, [variant]);
+
+  const animate = `animate${varinatSelect?.name}`;
+  const exit = `exit${varinatSelect?.name}`;
+  const initial = `initial${varinatSelect?.name}`;
 
   return {
     animate,

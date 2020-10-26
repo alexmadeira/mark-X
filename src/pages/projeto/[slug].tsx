@@ -64,6 +64,7 @@ interface StaticProps {
 
 const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
   const { isFallback } = useRouter();
+
   const { Line: ShimmerLine, Image: ShimmerImage } = useShimmer();
 
   return (

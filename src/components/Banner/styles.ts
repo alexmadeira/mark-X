@@ -6,7 +6,8 @@ import { saturate, tint } from 'polished';
 export const Container = styled(motion.div)`
   background: ${props => saturate(0.2, tint(0.5, props.theme.colors.Base))};
   padding: calc(${props => props.theme.spaces.BasePadding} * 3);
-  width: 40vw;
+  max-width: 40vw;
+  min-width: 40vw;
   color: ${props => props.theme.colors.White};
   height: 100%;
   display: flex;
@@ -14,24 +15,28 @@ export const Container = styled(motion.div)`
   justify-content: flex-start;
   align-items: flex-start;
   @media (max-width: 1310px) {
-    width: 50vw;
+    max-width: 50vw;
+    min-width: 50vw;
   }
   @media (max-width: 980px) {
     padding: ${props => props.theme.spaces.BasePadding};
   }
   @media (max-width: 780px) {
-    width: 100vw;
-    height: 60%;
+    max-width: 100vw;
+    min-width: 100vw;
+    height: 60vh;
   }
 
   @media (max-width: 450px) {
-    width: 100vw;
-    height: 70%;
+    max-width: 100vw;
+    min-width: 100vw;
+    height: 70vh;
   }
 
   @media (max-width: 780px) and (max-height: 450px) {
     height: 180%;
-    width: 55%;
+    max-width: 55vw;
+    min-width: 55vw;
   }
 `;
 

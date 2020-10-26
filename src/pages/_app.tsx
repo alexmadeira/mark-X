@@ -8,20 +8,27 @@ import { AppProps } from 'next/app';
 import Footer from '~/components/Footer';
 import Menu from '~/components/Menu';
 import { BannerProvider } from '~/hooks/BannerContext';
+import { WindowProvider } from '~/hooks/WindowContext';
 import GlobalStyle from '~/styles/GlobalStyle';
 import theme from '~/styles/theme';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
+  if (process.browser) {
+    const size = { width: window.innerWidth, height: window.innerHeight };
+    localStorage.setItem('windowSize', JSON.stringify(size));
+  }
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Menu />
-      <Footer />
-      <BannerProvider>
-        <AnimatePresence exitBeforeEnter>
-          <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
-      </BannerProvider>
+      <WindowProvider>
+        <Menu />
+        <Footer />
+        <BannerProvider>
+          <AnimatePresence exitBeforeEnter>
+            <Component {...pageProps} key={router.route} />
+          </AnimatePresence>
+        </BannerProvider>
+      </WindowProvider>
     </ThemeProvider>
   );
 };

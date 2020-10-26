@@ -15,6 +15,7 @@ import {
   Step,
   Prev,
   Next,
+  A,
   ProjectBox,
 } from '~/styles/pages/Home';
 import { FadeIn, variantesBanner } from '~/styles/variantes';
@@ -51,9 +52,8 @@ const Home: React.FC = () => {
         </NavButton>
       </Nav>
       <Link href={`/projeto/${projects[active.index]?.slug}`}>
-        <a>
+        <A variants={variantesBanner}>
           <Project
-            variants={variantesBanner}
             onMouseEnter={() => {
               pause();
             }}
@@ -65,7 +65,7 @@ const Home: React.FC = () => {
               <ProjectBanner project={projects[active.index]} isHome />
             </ProjectBox>
           </Project>
-        </a>
+        </A>
       </Link>
     </Container>
   );

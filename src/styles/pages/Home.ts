@@ -115,7 +115,7 @@ export const Next = styled.span`
   }
 `;
 
-export const Project = styled(motion.div)`
+export const Project = styled.div`
   position: relative;
   overflow: hidden;
   min-width: 100vw;
@@ -125,17 +125,20 @@ export const Project = styled(motion.div)`
 
   @media (max-width: 780px) {
     width: 100vw;
-    height: 40%;
-  }
-  @media (max-width: 600px) {
-    height: 30%;
+    height: 100vh;
   }
   @media (max-width: 780px) and (max-height: 400px) {
     width: 100vw;
     height: 180%;
   }
 `;
+export const A = styled(motion.a)`
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+`;
 
 export const ProjectBox = styled(motion.div)`
   height: 100%;
+  width: 100%;
 `;

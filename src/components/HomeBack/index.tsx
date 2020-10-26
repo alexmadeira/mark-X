@@ -19,7 +19,7 @@ const HomeBack: React.FC<HomeBackProps> = ({
 
   useEffect(() => {
     setById(projectId);
-  }, [projectId]);
+  }, [projectId, setById]);
 
   return (
     <NextLink href="/">

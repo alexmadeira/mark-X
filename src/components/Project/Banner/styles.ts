@@ -14,15 +14,23 @@ export const Container = styled.div`
   &.home {
     height: 100%;
   }
+  @media (max-width: 780px) {
+    height: 80vh;
+  }
 `;
 
 export const BannerImage = styled(motion.img)`
   width: 100vw;
+  height: 200vh;
   object-fit: cover;
   opacity: 0.4;
   position: absolute;
   top: 0;
   left: 0;
+
+  @media (max-width: 780px) {
+    height: 160vh;
+  }
 `;
 
 export const Title = styled(motion.h1)`

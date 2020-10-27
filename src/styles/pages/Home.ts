@@ -12,12 +12,12 @@ export const Container = styled(motion.div)`
     display: block;
   }
 
-  @media (max-width: 780px) and (max-height: 400px) {
+  @media (max-width: 850px) and (max-height: 400px) {
     overflow: scroll;
     overflow-x: hidden;
     display: flex;
     width: 100vw;
-    height: 100%;
+    height: 180%;
   }
 `;
 
@@ -127,15 +127,18 @@ export const Project = styled.div`
     width: 100vw;
     height: 100vh;
   }
-  @media (max-width: 780px) and (max-height: 400px) {
-    width: 100vw;
-    height: 180%;
+  @media (max-width: 850px) and (max-height: 400px) {
+    height: 100%;
   }
 `;
 export const A = styled(motion.a)`
   display: flex;
   width: 100vw;
   height: 100vh;
+  @media (max-width: 850px) and (max-height: 400px) {
+    width: 100vw;
+    height: 180%;
+  }
 `;
 
 export const ProjectBox = styled(motion.div)`

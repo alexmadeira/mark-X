@@ -62,7 +62,5 @@ body {
   text-rendering: optimizeLegibility !important;
   background: #000;
   max-width: 100vw;
-  color:#ff0
-
 }
 `;

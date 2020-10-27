@@ -18,6 +18,7 @@ const variantList: variantTypes[] = [
   { name: '780', width: 780, height: 450 },
   { name: '450', width: 450, height: 450 },
   { name: 'Mob', width: 0, height: 450 },
+  { name: 'Mob850', width: 450, height: 0 },
 ];
 
 export function useVariants(): Variants {

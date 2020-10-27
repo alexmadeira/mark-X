@@ -33,10 +33,11 @@ export const Container = styled(motion.div)`
     height: 70vh;
   }
 
-  @media (max-width: 780px) and (max-height: 450px) {
+  @media (max-width: 850px) and (max-height: 400px) {
     height: 180%;
     max-width: 55vw;
     min-width: 55vw;
+    padding: calc(${props => props.theme.spaces.BasePadding} * 3);
   }
 `;
 

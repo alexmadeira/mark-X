@@ -6,15 +6,19 @@ interface ShimmerProps {
   m: string;
 }
 
-export const ShimmerLine = styled.dd<ShimmerProps>`
+export const ShimmerLine = styled.span<ShimmerProps>`
   background-image: linear-gradient(
     -90deg,
     #c1c1c1 0%,
     #f8f8f8 50%,
     #c1c1c1 100%
   );
+  display: block;
   width: 100%;
   height: 50px;
+  height: ${props => props.h};
+  width: ${props => props.w};
+  margin: ${props => props.m};
   background-size: 400% 400%;
   animation: shimmer 1.2s ease-in-out infinite;
 
@@ -26,13 +30,10 @@ export const ShimmerLine = styled.dd<ShimmerProps>`
       background-position: -135% 0%;
     }
   }
-
-  height: ${props => props.h};
-  width: ${props => props.w};
-  margin: ${props => props.m};
   &.flex {
     flex: 1;
     width: 100%;
+    display: flex;
   }
 `;
 

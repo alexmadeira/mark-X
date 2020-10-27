@@ -51,6 +51,7 @@ const Home: React.FC = () => {
           <Prev />
         </NavButton>
       </Nav>
+
       <Link href={`/projeto/${projects[active.index]?.slug}`}>
         <A variants={variantesBanner}>
           <Project
@@ -61,7 +62,7 @@ const Home: React.FC = () => {
               start();
             }}
           >
-            <ProjectBox key={projects[active.index]?.slug} variants={FadeIn}>
+            <ProjectBox key={projects[active.index]?.id} variants={FadeIn}>
               <ProjectBanner project={projects[active.index]} isHome />
             </ProjectBox>
           </Project>

@@ -34,13 +34,7 @@ const Banner: React.FC = () => {
       </Spotlight>
       <ProjectInformation>
         <ProjectName>
-          {project ? (
-            project.name
-          ) : (
-            <>
-              <ShimmerLine h="30px" w="100px" />
-            </>
-          )}
+          {project ? project.name : <ShimmerLine h="30px" w="100px" />}
           <ProjectType>
             {project ? project.type : <ShimmerLine h="10px" w="100px" />}
           </ProjectType>

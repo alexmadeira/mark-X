@@ -15,6 +15,22 @@ html{
   font-size:62.5%
 }
 
+
+@media (min-width: 2000px) {
+  html{
+    font-size:72.5%
+  }
+}
+@media (min-width: 2150px) {
+  html{
+    font-size:82.5%
+  }
+}
+@media (min-width: 2400px) {
+  html{
+    font-size:92.5%
+  }
+}
 @media (max-width: 1625px) {
   html{
     font-size:50%

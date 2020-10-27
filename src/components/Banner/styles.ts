@@ -69,16 +69,25 @@ export const Title = styled.h1`
   flex: 1;
   display: flex;
   flex-wrap: wrap;
+
   figure {
     transform: rotate(-25deg);
     width: 12.5rem;
   }
+
+  @media (min-width: 2400px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   @media (max-width: 980px) {
     width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+
   @media (max-width: 845px) {
     font-size: calc(
       ${props => props.theme.fonts.Sizes.Banner.spotlight} - 2rem
@@ -90,6 +99,7 @@ export const Title = styled.h1`
       width: 11rem;
     }
   }
+
   @media (max-width: 780px) {
     width: auto;
     flex-direction: row;
@@ -101,6 +111,7 @@ export const Title = styled.h1`
       width: 12.5rem;
     }
   }
+
   @media (max-width: 780px) and (max-height: 450px) {
     font-size: calc(
       ${props => props.theme.fonts.Sizes.Banner.spotlight} - 2.5rem
@@ -121,12 +132,18 @@ export const SubTitle = styled.h2`
   line-height: calc(
     ${props => props.theme.fonts.Sizes.Banner.highlighted} + 10px
   );
+
+  @media (min-width: 2400px) {
+    margin: 0 auto;
+  }
+
   @media (max-width: 980px) {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   @media (max-width: 845px) {
     font-size: calc(
       ${props => props.theme.fonts.Sizes.Banner.highlighted} - 2rem
@@ -135,6 +152,7 @@ export const SubTitle = styled.h2`
       ${props => props.theme.fonts.Sizes.Banner.highlighted} + 10px - 2rem
     );
   }
+
   @media (max-width: 780px) {
     align-items: flex-start;
     justify-content: flex-start;
@@ -143,6 +161,7 @@ export const SubTitle = styled.h2`
       ${props => props.theme.fonts.Sizes.Banner.highlighted} + 10px
     );
   }
+
   @media (max-width: 780px) and (max-height: 450px) {
     font-size: calc(
       ${props => props.theme.fonts.Sizes.Banner.highlighted} - 1rem
@@ -164,6 +183,9 @@ export const ProjectInformation = styled.div`
     margin: calc(${props => props.theme.spaces.BaseMargin} + 10px);
     margin-bottom: calc(${props => props.theme.spaces.BaseMargin} + 20px);
   }
+  @media (min-width: 2400px) {
+    margin: calc(${props => props.theme.spaces.BaseMargin} * 10) auto 0 auto;
+  }
 `;
 
 export const ProjectName = styled.h3`
@@ -175,6 +197,12 @@ export const ProjectName = styled.h3`
   justify-content: center;
   align-items: center;
   margin-bottom: ${props => props.theme.spaces.BaseMargin};
+  @media (min-width: 2000px) {
+    font-size: calc(${props => props.theme.fonts.Sizes.Banner.title} + 1.2rem);
+    line-height: calc(
+      ${props => props.theme.fonts.Sizes.Banner.title} + 1.2rem + 10px
+    );
+  }
 `;
 
 export const ProjectType = styled.strong`
@@ -187,6 +215,15 @@ export const ProjectType = styled.strong`
   transition: all 250ms ease;
   transition-delay: 180ms;
   flex: 1;
+  @media (min-width: 2000px) {
+    font-size: calc(${props => props.theme.fonts.Sizes.Banner.type} + 1.2rem);
+    line-height: calc(
+      ${props => props.theme.fonts.Sizes.Banner.type} + 1.2rem + 10px
+    );
+    margin-left: calc(${props => props.theme.spaces.BaseMargin}*4);
+    padding-left: calc(${props => props.theme.spaces.BaseMargin}*4);
+  }
+
   &::after {
     content: '';
     background: ${props => props.theme.colors.White};
@@ -215,6 +252,14 @@ export const ProjectDescription = styled.p`
     );
     line-height: calc(
       ${props => props.theme.fonts.Sizes.Banner.paragraph} + 10px + 1rem
+    );
+  }
+  @media (min-width: 2000px) {
+    font-size: calc(
+      ${props => props.theme.fonts.Sizes.Banner.paragraph} + 1.2rem
+    );
+    line-height: calc(
+      ${props => props.theme.fonts.Sizes.Banner.paragraph} + 20px + 1.2rem
     );
   }
 `;

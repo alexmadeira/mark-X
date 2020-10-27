@@ -1,6 +1,6 @@
 export default {
   initialMob: {
-    y: '-70vh',
+    y: '-55vh',
   },
   animateMob: {
     y: 0,
@@ -10,7 +10,7 @@ export default {
     },
   },
   exitMob: {
-    y: '-70vh',
+    y: '-55vh',
     transition: {
       duration: 0.4,
       ease: 'easeInOut',

@@ -15,7 +15,10 @@ export const Container = styled.div`
     height: 100%;
   }
   @media (max-width: 780px) {
-    height: 80vh;
+    height: 100vh;
+  }
+  @media (max-width: 850px) and (max-height: 400px) {
+    height: 110vh;
   }
 `;
 
@@ -29,7 +32,7 @@ export const BannerImage = styled(motion.img)`
   left: 0;
 
   @media (max-width: 780px) {
-    height: 160vh;
+    height: 200vh;
   }
 `;
 

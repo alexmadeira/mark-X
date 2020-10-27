@@ -30,7 +30,7 @@ export const Container = styled(motion.div)`
   @media (max-width: 450px) {
     max-width: 100vw;
     min-width: 100vw;
-    height: 70vh;
+    height: 55vh;
   }
 
   @media (max-width: 850px) and (max-height: 400px) {

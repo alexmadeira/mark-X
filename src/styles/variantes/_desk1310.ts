@@ -1,6 +1,6 @@
 export default {
   initial1310: {
-    x: '-35vw',
+    x: '-40vw',
   },
   animate1310: {
     x: 0,
@@ -10,7 +10,7 @@ export default {
     },
   },
   exit1310: {
-    x: '-35vw',
+    x: '-40vw',
     transition: {
       duration: 0.4,
       ease: 'easeInOut',

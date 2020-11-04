@@ -7,6 +7,7 @@ import { AppProps } from 'next/app';
 
 import Footer from '~/components/Footer';
 import Menu from '~/components/Menu';
+import Projects from '~/components/Projects';
 import { BannerProvider } from '~/hooks/BannerContext';
 import { WindowProvider } from '~/hooks/WindowContext';
 import GlobalStyle from '~/styles/GlobalStyle';
@@ -22,6 +23,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
       <GlobalStyle />
       <WindowProvider>
         <Menu />
+        <Projects />
         <Footer />
         <BannerProvider>
           <AnimatePresence exitBeforeEnter>

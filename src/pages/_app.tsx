@@ -9,6 +9,7 @@ import Footer from '~/components/Footer';
 import Menu from '~/components/Menu';
 import Projects from '~/components/Projects';
 import { BannerProvider } from '~/hooks/BannerContext';
+import { ProjectListProvider } from '~/hooks/ProjectListContext';
 import { WindowProvider } from '~/hooks/WindowContext';
 import GlobalStyle from '~/styles/GlobalStyle';
 import theme from '~/styles/theme';
@@ -22,14 +23,16 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <WindowProvider>
-        <Menu />
-        <Projects />
-        <Footer />
-        <BannerProvider>
-          <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} key={router.route} />
-          </AnimatePresence>
-        </BannerProvider>
+        <ProjectListProvider>
+          <Menu />
+          <Projects />
+          <Footer />
+          <BannerProvider>
+            <AnimatePresence exitBeforeEnter>
+              <Component {...pageProps} key={router.route} />
+            </AnimatePresence>
+          </BannerProvider>
+        </ProjectListProvider>
       </WindowProvider>
     </ThemeProvider>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
@@ -10,6 +10,7 @@ import InstagramBox from '~/components/InstagramBox';
 import NavProject from '~/components/NavProject';
 import Banner from '~/components/Project/Banner';
 import SEO from '~/components/SEO';
+import { useProjectList } from '~/hooks/ProjectListContext';
 import useShimmer from '~/hooks/useShimmer';
 import client from '~/lib/prismic';
 import {
@@ -66,6 +67,11 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
   const { isFallback } = useRouter();
 
   const { Line: ShimmerLine, Image: ShimmerImage } = useShimmer();
+
+  const { closeList } = useProjectList();
+  useEffect(() => {
+    closeList();
+  }, [closeList]);
 
   return (
     <Container>

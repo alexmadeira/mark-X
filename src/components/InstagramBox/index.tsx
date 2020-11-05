@@ -43,9 +43,8 @@ const InstagramBox: React.FC<InstagramBoxProps> = ({ userName, limit = 5 }) => {
         if (index > limit) return null;
 
         return (
-          <ShimmerImage>
+          <ShimmerImage key={media.node.id}>
             <Thumb
-              key={media.node.id}
               src={media.node.display_url}
               alt=""
               onLoad={e =>

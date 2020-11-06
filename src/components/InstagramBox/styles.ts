@@ -3,40 +3,26 @@ import styled from 'styled-components';
 import Image from 'next/image';
 
 export const Container = styled.div`
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   grid-gap: ${props => props.theme.spaces.BasePadding};
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   width: 100%;
   max-width: 1600px;
   min-height: 100vh;
   margin: calc(${props => props.theme.spaces.BaseMargin}*5) auto
     calc(${props => props.theme.spaces.BaseMargin}*5) auto;
-
-  & > div {
-    margin: ${props => props.theme.spaces.BaseMargin};
-    width: calc((1600px / 3) - (${props => props.theme.spaces.BaseMargin} * 4));
-    height: calc(
-      (1600px / 3) - (${props => props.theme.spaces.BaseMargin} * 4)
-    );
-
-    @media (max-width: 1599px) {
-      width: calc((100% / 3) - (${props => props.theme.spaces.BaseMargin} * 4));
-      height: calc(
-        (100% / 3) - (${props => props.theme.spaces.BaseMargin} * 4)
-      );
-    }
-    @media (max-width: 1135px) {
-      width: calc((100% / 2) - (${props => props.theme.spaces.BaseMargin} * 4));
-      height: calc(
-        (100% / 2) - (${props => props.theme.spaces.BaseMargin} * 4)
-      );
-    }
-    @media (max-width: 600px) {
-      width: calc(100% - (${props => props.theme.spaces.BaseMargin} * 4));
-      height: calc(100% - (${props => props.theme.spaces.BaseMargin} * 4));
-    }
+  padding: 0 ${props => props.theme.spaces.BasePadding};
+  @media (max-width: 1135px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
   }
 `;
 

@@ -119,8 +119,8 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
         <ShimmerImage h="85vh" w="100%">
           <Image
             src={project?.preview.url}
-            width={project?.preview.dimensions.width}
-            height={project?.preview.dimensions.height}
+            width={project?.preview.dimensions.width * 2}
+            height={project?.preview.dimensions.height * 2}
             alt={`${project?.name} Preview`}
             onLoad={e =>
               (e.target as HTMLTextAreaElement).classList.add('loaded')

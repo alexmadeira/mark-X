@@ -64,8 +64,14 @@ export const ShimmerImage = styled.div<ShimmerProps>`
   &.flex {
     flex: 1;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
   }
-
+  & > div {
+    height: 100%;
+  }
   img {
     opacity: 0;
     transition: opacity 1000ms ease;

@@ -53,8 +53,8 @@ const Banner: React.FC<BannerProps> = ({ isHome = false, project }) => {
       <BannerImage style={{ y: bannerImage }}>
         <Image
           src={project.banner.url}
-          width={project.banner.dimensions.width}
-          height={project.banner.dimensions.height}
+          width={project.banner.dimensions.width * 2}
+          height={project.banner.dimensions.height * 2}
           alt="Profile Picture"
         />
       </BannerImage>

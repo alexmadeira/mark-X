@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 
-import Emojis1 from '../../assets/emojis/emoji1.svg';
-import Emojis2 from '../../assets/emojis/emoji2.svg';
+import Image from 'next/image';
+
 import { Container } from './styles';
 
 interface EmojProps {
@@ -13,9 +13,13 @@ const Emoji: React.FC<EmojProps> = ({ dark = true }) => {
   const Random = useCallback(() => {
     switch (Number(random)) {
       case 0:
-        return <Emojis1 />;
+        return (
+          <Image src="/assets/emojis/emoji1.svg" width="100" height="100" />
+        );
       case 1:
-        return <Emojis2 />;
+        return (
+          <Image src="/assets/emojis/emoji2.svg" width="100" height="100" />
+        );
       default:
         return null;
     }

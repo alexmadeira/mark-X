@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 
 import Link from 'next/link';
 
+import { useProjectList } from '~/hooks/ProjectListContext';
 import { useDarkMode } from '~/hooks/useScroll';
 
 import { Container, Hamburguer, MenuContainer, MenuItem } from './styles';
 
 const Menu: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const { openList, closeList } = useProjectList();
   const { className } = useDarkMode({ numerator: 14, denominator: 15 });
 
   const toggleMenu = () => {
+    closeList();
     if (open) {
       setOpen(false);
     } else {
@@ -40,7 +43,15 @@ const Menu: React.FC = () => {
           </Link>
         </MenuItem>
         <MenuItem>
-          <button type="button">Projetos</button>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              openList();
+            }}
+          >
+            Projetos
+          </button>
         </MenuItem>
       </MenuContainer>
     </Container>

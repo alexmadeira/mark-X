@@ -12,6 +12,7 @@ import Banner from '~/components/Project/Banner';
 import SEO from '~/components/SEO';
 import { useProjectList } from '~/hooks/ProjectListContext';
 import useShimmer from '~/hooks/useShimmer';
+import { useVariants } from '~/hooks/useVariants';
 import client from '~/lib/prismic';
 import {
   Container,
@@ -69,9 +70,14 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
   const { Line: ShimmerLine, Image: ShimmerImage } = useShimmer();
 
   const { closeList } = useProjectList();
+  useVariants();
   useEffect(() => {
     closeList();
   }, [closeList]);
+
+  if (isFallback) {
+    return null;
+  }
 
   return (
     <Container>

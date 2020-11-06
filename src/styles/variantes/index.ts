@@ -2,11 +2,13 @@ import { Variants } from 'framer-motion';
 
 import desk1310 from './_desk1310';
 import desk780 from './_desk780';
+import fade from './_fade';
 import mob from './_mob';
 import mob450 from './_mob450';
 import mob850 from './_mob850';
 
 export const variantesBanner: Variants = {
+  ...fade,
   ...desk1310,
   ...desk780,
   ...mob450,

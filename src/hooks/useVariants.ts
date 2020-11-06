@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { useBanner } from '~/hooks/BannerContext';
 import { useWindow } from '~/hooks/WindowContext';
 
 interface Variants {
@@ -9,8 +10,8 @@ interface Variants {
 }
 interface variantTypes {
   name: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
 const variantList: variantTypes[] = [
@@ -24,14 +25,15 @@ const variantList: variantTypes[] = [
 export function useVariants(): Variants {
   const { width, height } = useWindow();
 
-  const variant = useCallback(
-    (): variantTypes =>
-      variantList.find(
-        variantType =>
-          width >= variantType.width && height >= variantType.height,
-      ),
-    [height, width],
-  );
+  const { inBanner } = useBanner();
+  const variant = useCallback((): variantTypes => {
+    if (!inBanner()) {
+      return { name: 'Fade' };
+    }
+    return variantList.find(
+      variantType => width >= variantType.width && height >= variantType.height,
+    );
+  }, [height, inBanner, width]);
 
   const [varinatSelect, setVarinatSelect] = useState(variant);
 

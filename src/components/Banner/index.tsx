@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 
 import Emoji from '~/components/Emoji';
 import { useBanner } from '~/hooks/BannerContext';
@@ -18,9 +18,13 @@ import {
 import Timer from './Timer';
 
 const Banner: React.FC = () => {
-  const { projects, active } = useBanner();
+  const { projects, active, setShowProject } = useBanner();
   const { Line: ShimmerLine } = useShimmer();
-  const project = projects[active.index];
+  const project = projects[active];
+
+  useEffect(() => {
+    setShowProject(project?.id);
+  }, [setShowProject, project]);
 
   return (
     <Container variants={variantesBanner}>

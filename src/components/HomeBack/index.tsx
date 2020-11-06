@@ -15,11 +15,14 @@ const HomeBack: React.FC<HomeBackProps> = ({
   children,
   isHome = false,
 }) => {
-  const { setById } = useBanner();
+  const { setById, setShowProject, inBanner } = useBanner();
 
   useEffect(() => {
-    setById(projectId);
-  }, [projectId, setById]);
+    setShowProject(projectId);
+    if (inBanner) {
+      setById(projectId);
+    }
+  }, [inBanner, projectId, setById, setShowProject]);
 
   return (
     <NextLink href="/">

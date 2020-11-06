@@ -33,18 +33,18 @@ interface Project {
 }
 
 interface BannerContextData {
-  active: {
-    index: number;
-    id: string;
-  };
+  active: number;
   total: number;
   percent: number;
   projects: Project[];
+
   set(index: number): void;
   next(): void;
   prev(): void;
   pause(): void;
   start(): void;
+  setShowProject(projectId: string): void;
+  inBanner(): boolean;
   setById(projectId: string): void;
 }
 
@@ -56,6 +56,7 @@ const BannerProvider: React.FC = ({ children }) => {
   const [projects, setProjects] = useState<Project[]>([]);
   const active = useRef(0);
   const total = useRef(0);
+  const [showProject, setShowProject] = useState<null | string>(null);
   const [percent, setPercent] = useState(0);
 
   const set = useCallback((index: number) => {
@@ -74,6 +75,16 @@ const BannerProvider: React.FC = ({ children }) => {
     },
     [projects, set],
   );
+
+  const inBanner = useCallback(() => {
+    if (!showProject) return false;
+
+    const index = projects.findIndex(project => project.id === showProject);
+    if (index > -1) {
+      return true;
+    }
+    return false;
+  }, [showProject]);
 
   const next = useCallback(() => {
     const nextBanner =
@@ -152,14 +163,13 @@ const BannerProvider: React.FC = ({ children }) => {
   return (
     <BannerContext.Provider
       value={{
-        active: {
-          index: active.current,
-          id: 's',
-        },
+        active: active.current,
         total: total.current,
         projects,
         percent,
+        setShowProject,
         setById,
+        inBanner,
         set,
         next,
         prev,

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Prismic from 'prismic-javascript';
 
@@ -23,7 +24,7 @@ import {
   NextProject,
 } from '~/styles/pages/Projeto';
 
-interface Image {
+interface ProjectImage {
   alt: string | null;
   copyright: string | null;
   dimensions: {
@@ -36,11 +37,11 @@ interface Image {
 interface Project {
   slug: string;
   name: string;
-  banner: Image;
+  banner: ProjectImage;
   id: string;
   emoji: boolean;
-  logo: Image;
-  preview: Image;
+  logo: ProjectImage;
+  preview: ProjectImage;
   type: string;
   instagram: string;
   shortdescription: string;
@@ -90,14 +91,17 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
       </HomeBack>
       <Banner project={project} />
       <Header>
-        <HeaderLogo
-          src={project?.logo.url}
-          alt={`${project?.name} Logo`}
-          onLoad={e =>
-            (e.target as HTMLTextAreaElement).classList.add('loaded')
-          }
-        />
-
+        {project && (
+          <HeaderLogo
+            src={project?.logo.url}
+            width={project.logo.dimensions.width}
+            height={project.logo.dimensions.height}
+            alt={`${project?.name} Logo`}
+            onLoad={e =>
+              (e.target as HTMLTextAreaElement).classList.add('loaded')
+            }
+          />
+        )}
         <HeaderDescription>
           {isFallback ? (
             <>
@@ -113,8 +117,10 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
       <InstagramBox userName={project?.instagram} />
       <Spotlight>
         <ShimmerImage h="85vh" w="100%">
-          <img
+          <Image
             src={project?.preview.url}
+            width={project?.preview.dimensions.width}
+            height={project?.preview.dimensions.height}
             alt={`${project?.name} Preview`}
             onLoad={e =>
               (e.target as HTMLTextAreaElement).classList.add('loaded')

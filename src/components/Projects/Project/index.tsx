@@ -26,7 +26,12 @@ const Project: React.FC<ProjectProps> = ({ name, slug, logo }) => {
     <Container>
       <Link href={`/projeto/${slug}`}>
         <a>
-          <Logo src={logo.url} alt={name} />
+          <Logo
+            src={logo.url}
+            width={logo.dimensions.width}
+            height={logo.dimensions.height}
+            alt={name}
+          />
         </a>
       </Link>
     </Container>

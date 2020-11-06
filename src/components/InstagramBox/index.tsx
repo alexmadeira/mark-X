@@ -14,6 +14,10 @@ interface Media {
   node: {
     id: string;
     display_url: string;
+    dimensions: {
+      height: number;
+      width: number;
+    };
     thumbnail_src: string;
   };
 }
@@ -47,6 +51,8 @@ const InstagramBox: React.FC<InstagramBoxProps> = ({ userName, limit = 5 }) => {
             <Thumb
               src={media.node.display_url}
               alt=""
+              width={media.node.dimensions.width}
+              height={media.node.dimensions.height}
               onLoad={e =>
                 (e.target as HTMLTextAreaElement).classList.add('loaded')
               }

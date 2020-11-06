@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import Image from 'next/image';
+
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -38,7 +40,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Thumb = styled.img`
+export const Thumb = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: cover;

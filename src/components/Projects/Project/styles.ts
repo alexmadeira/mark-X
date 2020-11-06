@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Logo = styled.img`
+import Image from 'next/image';
+
+export const Logo = styled(Image)`
   opacity: 1;
   transition: all 250ms ease;
   width: 80%;

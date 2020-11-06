@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import Image from 'next/image';
+
 export const Container = styled.div`
   width: 100vw;
   background: ${props => props.theme.colors.White};
@@ -18,7 +20,7 @@ export const Header = styled.div`
   }
 `;
 
-export const HeaderLogo = styled.img`
+export const HeaderLogo = styled(Image)`
   object-fit: contain;
   margin: 0 auto;
   display: block;

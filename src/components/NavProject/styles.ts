@@ -11,17 +11,18 @@ export const A = styled.a`
   font-weight: bold;
   font-size: 6rem;
   cursor: pointer;
+  overflow: hidden;
   position: relative;
   img {
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center center;
     opacity: 0.2;
     transition: opacity 500ms ease;
+  }
+  span {
+    position: absolute;
   }
   &:hover {
     img {

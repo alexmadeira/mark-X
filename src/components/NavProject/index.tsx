@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 import client from '~/lib/prismic';
 
 import { A } from './styles';
 
-interface Image {
+interface ImageProject {
   alt: string | null;
   copyright: string | null;
   dimensions: {
@@ -19,7 +20,7 @@ interface Image {
 interface Project {
   slug: string;
   name: string;
-  banner: Image;
+  banner: ImageProject;
 }
 
 interface NavProjectProps {
@@ -48,8 +49,15 @@ const NavProject: React.FC<NavProjectProps> = ({ slug }) => {
   return (
     <Link href={`/projeto/${project?.slug}`}>
       <A>
-        <img src={project.banner?.url} alt={`${project?.name} Banner`} />
-        {project?.name}
+        {project.banner && (
+          <Image
+            src={project.banner.url}
+            width={project.banner.dimensions.width}
+            height={project.banner.dimensions.height}
+            alt={`${project.name} Banner`}
+          />
+        )}
+        <span>{project?.name}</span>
       </A>
     </Link>
   );

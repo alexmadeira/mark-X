@@ -149,7 +149,6 @@ const BannerProvider: React.FC = ({ children }) => {
         slug: result.uid,
         id: result.id,
       }));
-
       total.current = projectData.length;
       setProjects(projectData);
     };

@@ -22,14 +22,18 @@ export const Container = styled.div`
   }
 `;
 
-export const BannerImage = styled(motion.img)`
+export const BannerImage = styled(motion.div)`
   width: 100vw;
   height: 200vh;
-  object-fit: cover;
-  opacity: 0.4;
   position: absolute;
   top: 0;
   left: 0;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+  }
 
   @media (max-width: 780px) {
     height: 200vh;

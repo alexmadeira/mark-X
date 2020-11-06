@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useViewportScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 
 import { Container, BannerImage, Title } from './styles';
 
-interface Image {
+interface ProjectImage {
   alt: string | null;
   copyright: string | null;
   dimensions: {
@@ -16,7 +17,7 @@ interface Image {
 
 interface Project {
   name: string;
-  banner: Image;
+  banner: ProjectImage;
 }
 
 interface BannerProps {
@@ -49,11 +50,14 @@ const Banner: React.FC<BannerProps> = ({ isHome = false, project }) => {
 
   return (
     <Container ref={containerRef} className={isHome && 'home'}>
-      <BannerImage
-        src={project.banner.url}
-        alt="nome"
-        style={{ y: bannerImage }}
-      />
+      <BannerImage style={{ y: bannerImage }}>
+        <Image
+          src={project.banner.url}
+          width={project.banner.dimensions.width}
+          height={project.banner.dimensions.height}
+          alt="Profile Picture"
+        />
+      </BannerImage>
       {!isHome && (
         <Title
           exit={{ opacity: 0 }}

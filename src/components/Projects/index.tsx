@@ -16,8 +16,7 @@ import {
 const Projects: React.FC = () => {
   const { toggleList, open, projects } = useProjectList();
 
-  const { className } = useDarkMode({ numerator: 14, denominator: 15 });
-
+  const { className } = useDarkMode({ numerator: 1, denominator: 9 });
   return (
     <Container>
       <SquaresMenu

@@ -6,18 +6,10 @@ import { useDarkMode } from '~/hooks/useScroll';
 import { Container, Social, SocialItem } from './styles';
 
 const Footer: React.FC = () => {
-  const { toggle: body } = useDarkMode({ numerator: 1, denominator: 9 });
-  // const { toggle: nav } = useDarkMode({
-  //   numerator: 34,
-  //   denominator: 15.3,
-  // });
-  // const { toggle: footer } = useDarkMode({
-  //   numerator: 36,
-  //   denominator: 14,
-  // });
+  const { toggle: dark } = useDarkMode({ numerator: 1, denominator: 9 });
 
   return (
-    <Container className={body && 'bodyDark'}>
+    <Container className={dark && 'bodyDark'}>
       <Social>
         <SocialItem>
           <a

@@ -52,6 +52,7 @@ const Banner: React.FC<BannerProps> = ({ isHome = false, project }) => {
     <Container ref={containerRef} className={isHome && 'home'}>
       <BannerImage style={{ y: bannerImage }}>
         <Image
+          priority
           src={project.banner.url}
           width={project.banner.dimensions.width * 2}
           height={project.banner.dimensions.height * 2}

@@ -37,6 +37,7 @@ const InstagramBox: React.FC<InstagramBoxProps> = ({ userName, limit = 5 }) => {
   const { Image: ShimmerImage } = useShimmer();
   const { data } = useFetch<InstagraProps>(userName);
   if (!data) return null;
+  if (!data.graphql) return null;
 
   const { user } = data.graphql;
   const { edges } = user.edge_owner_to_timeline_media;

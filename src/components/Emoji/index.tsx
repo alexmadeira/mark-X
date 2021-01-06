@@ -86,7 +86,7 @@ const Emoji: React.FC<EmojProps> = ({ dark = true }) => {
       case 24:
         return <Emoji25 />;
       default:
-        return null;
+        return <Emoji4 />;
     }
   }, [random]);
 

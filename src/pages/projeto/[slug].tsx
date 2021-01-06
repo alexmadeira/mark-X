@@ -7,7 +7,7 @@ import Prismic from 'prismic-javascript';
 
 import Emoji from '~/components/Emoji';
 import HomeBack from '~/components/HomeBack';
-// import InstagramBox from '~/components/InstagramBox';
+import InstagramBox from '~/components/InstagramBox';
 import NavProject from '~/components/NavProject';
 import Banner from '~/components/Project/Banner';
 import SEO from '~/components/SEO';
@@ -83,11 +83,9 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
 
   return (
     <Container>
-      {!isFallback && (
-        <SEO title={project.name} description={project.shortdescription} />
-      )}
+      <SEO title={project.name} description={project.shortdescription} />
       <HomeBack isHome={isHome} projectId={project?.id}>
-        <Emoji dark={project?.emoji} />
+        <Emoji dark={project.emoji} />
       </HomeBack>
       <Banner project={project} />
       <Header>
@@ -114,7 +112,7 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
           )}
         </HeaderDescription>
       </Header>
-      {/* <InstagramBox userName={project?.instagram} /> */}
+      <InstagramBox userName={project?.instagram} />
       <Spotlight>
         <ShimmerImage h="85vh" w="100%">
           <Image

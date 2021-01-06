@@ -21,6 +21,7 @@ interface Project {
   slug: string;
   name: string;
   banner: ImageProject;
+  minibanner: ImageProject;
 }
 
 interface NavProjectProps {
@@ -49,11 +50,11 @@ const NavProject: React.FC<NavProjectProps> = ({ slug }) => {
   return (
     <Link href={`/projeto/${project?.slug}`}>
       <A>
-        {project.banner && (
+        {project.minibanner && (
           <Image
-            src={project.banner.url}
-            width={project.banner.dimensions.width}
-            height={project.banner.dimensions.height}
+            src={project.minibanner.url}
+            width={project.minibanner.dimensions.width}
+            height={project.minibanner.dimensions.height}
             alt={`${project.name} Banner`}
           />
         )}

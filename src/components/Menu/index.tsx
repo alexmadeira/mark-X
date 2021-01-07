@@ -35,13 +35,13 @@ const Menu: React.FC = () => {
             </a>
           </Link>
         </MenuItem>
-        <MenuItem>
+        {/* <MenuItem>
           <Link href="/sobre">
             <a href="/sobre" onClick={() => setOpen(false)}>
               Sobre
             </a>
           </Link>
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem>
           <button
             type="button"

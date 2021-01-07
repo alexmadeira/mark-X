@@ -53,6 +53,7 @@ const Banner: React.FC<BannerProps> = ({ isHome = false, project }) => {
       <BannerImage style={{ y: bannerImage }}>
         <Image
           priority
+          layout="intrinsic"
           src={project.banner.url}
           width={project.banner.dimensions.width * 2}
           height={project.banner.dimensions.height * 2}

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export const Container = styled.div`
   background: ${props => props.theme.colors.Black};
-  width: 100%;
+  min-width: 100%;
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -23,11 +23,14 @@ export const Container = styled.div`
 `;
 
 export const BannerImage = styled(motion.div)`
-  width: 100vw;
+  min-width: 100vw;
   height: 200vh;
   position: absolute;
   top: 0;
   left: 0;
+  & > * {
+    height: 100%;
+  }
   img {
     width: 100%;
     height: 100%;

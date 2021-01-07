@@ -13,6 +13,9 @@ export const A = styled.a`
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  & > div {
+    height: 100%;
+  }
   img {
     width: 100%;
     height: 100%;

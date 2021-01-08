@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
       <Social>
         <SocialItem>
           <a
-            href="https://www.instagram.com/alex.c.madeira/"
+            href="https://www.instagram.com/alexcmadeira/"
             target="_blank"
             rel="noopener noreferrer"
           >

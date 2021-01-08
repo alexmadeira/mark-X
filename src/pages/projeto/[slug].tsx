@@ -77,29 +77,24 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
     closeList();
   }, [asPath]);
 
-  if (isFallback) {
-    return null;
-  }
-
   return (
     <Container>
-      <SEO title={project.name} description={project.shortdescription} />
+      <SEO title={project?.name} description={project?.shortdescription} />
       <HomeBack isHome={isHome} projectId={project?.id}>
-        <Emoji dark={project.emoji} />
+        <Emoji dark={project?.emoji} />
       </HomeBack>
       <Banner project={project} />
       <Header>
-        {project && (
-          <HeaderLogo
-            src={project?.logo.url}
-            width={project.logo.dimensions.width}
-            height={project.logo.dimensions.height}
-            alt={`${project?.name} Logo`}
-            onLoad={e =>
-              (e.target as HTMLTextAreaElement).classList.add('loaded')
-            }
-          />
-        )}
+        <HeaderLogo
+          src={project?.logo.url}
+          width={project?.logo.dimensions.width}
+          height={project?.logo.dimensions.height}
+          priority
+          alt={`${project?.name} Logo`}
+          onLoad={e =>
+            (e.target as HTMLTextAreaElement).classList.add('loaded')
+          }
+        />
         <HeaderDescription>
           {isFallback ? (
             <>
@@ -108,7 +103,7 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
               <ShimmerLine h="10px" w="100px" m="0 0 8px 0" flex />
             </>
           ) : (
-            project.shortdescription
+            project?.shortdescription
           )}
         </HeaderDescription>
       </Header>
@@ -138,7 +133,6 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const { results } = await client().query([
     Prismic.Predicates.at('document.type', 'project'),
-    Prismic.Predicates.at('my.project.spotlight', true),
   ]);
   const paths = results.map(result => ({ params: { slug: result.uid } }));
   return {

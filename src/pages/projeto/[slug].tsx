@@ -109,7 +109,7 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
       </Header>
       <InstagramBox userName={project?.instagram} />
       <Spotlight>
-        <ShimmerImage h="85vh" w="100%">
+        <ShimmerImage flex>
           <Image
             src={project?.preview.url}
             width={project?.preview.dimensions.width * 2}

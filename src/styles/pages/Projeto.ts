@@ -39,7 +39,6 @@ export const HeaderDescription = styled.p`
 export const Spotlight = styled.div`
   overflow: hidden;
   width: 100%;
-  height: 85vh;
   margin: calc(${props => props.theme.spaces.BaseMargin} * 5) 0;
   img {
     object-fit: cover;

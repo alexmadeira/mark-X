@@ -48,4 +48,5 @@ export const Title = styled(motion.h1)`
   color: ${props => props.theme.colors.White};
   z-index: 2;
   font-size: ${props => props.theme.fonts.Sizes.Project.Title};
+  text-align: center;
 `;

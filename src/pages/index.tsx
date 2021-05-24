@@ -28,7 +28,7 @@ const Home: React.FC = () => {
     <Container animate={animate} exit={exit} initial={initial}>
       <SEO
         title="Alex Madeira | Desenvolvedor Web"
-        description="asdasdad asdasdasdasdasd adad"
+        description="Sou um desenvolvedor front-end de 30 anos residente em Barueri - SP. Há alguns anos, mais especificadamente, 10 anos, venho tentando consertar todo o caos em que a Umbrella Corporation deixou o mundo, e de que forma? Através de desenvolvimento de aplicações web. (sites, ecommerces, blogs, softwares, hotsites e etc). Confira alguma das minhas habilidades e me chame para um novo desafio!"
         shoudExcludeTitleSufix
       />
       <Banner />

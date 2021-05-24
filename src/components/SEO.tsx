@@ -7,7 +7,7 @@ interface SEOProps {
   description: string;
   image?: string;
   shoudExcludeTitleSufix?: boolean;
-  shoudIndexPage?: boolean;
+  notIndexPage?: boolean;
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -15,7 +15,7 @@ const SEO: React.FC<SEOProps> = ({
   description,
   image,
   shoudExcludeTitleSufix = false,
-  shoudIndexPage = false,
+  notIndexPage = false,
 }) => {
   const pageTitle = `${title} ${
     !shoudExcludeTitleSufix ? '| Alex Madeira' : ''
@@ -29,7 +29,7 @@ const SEO: React.FC<SEOProps> = ({
       <title>{pageTitle}</title>
       {description && <meta name="description" content={description} />}
       {image && <meta name="image" content={pageImage} />}
-      {!shoudIndexPage && <meta name="robots" content="noindex, nofollow" />}
+      {notIndexPage && <meta name="robots" content="noindex, nofollow" />}
 
       <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
       <meta name="MobileOptimized" content="320" />

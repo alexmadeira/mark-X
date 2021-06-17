@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 
 export const Container = styled.div`
-  width: 100vw;
+  max-width: 100vw;
   background: ${props => props.theme.colors.White};
 `;
 

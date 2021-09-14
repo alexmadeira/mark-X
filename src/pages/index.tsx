@@ -52,7 +52,11 @@ const Home: React.FC = () => {
         </NavButton>
       </Nav>
 
-      <Link href={`/projeto/${projects[active]?.slug}`}>
+      <Link
+        href={`/${
+          projects[active]?.type === 'CSS Art' ? 'css-art' : 'projeto'
+        }/${projects[active]?.slug}`}
+      >
         <A variants={variantesBanner}>
           <Project
             onMouseEnter={() => {

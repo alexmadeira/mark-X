@@ -15,16 +15,16 @@ interface Image {
 }
 
 interface ProjectProps {
-  slug: string;
+  path: string;
   name: string;
   id: string;
   logo: Image;
 }
 
-const Project: React.FC<ProjectProps> = ({ name, slug, logo }) => {
+const Project: React.FC<ProjectProps> = ({ name, path, logo }) => {
   return (
     <Container>
-      <Link href={`/projeto/${slug}`}>
+      <Link href={path}>
         <a>
           <Logo
             src={logo.url}

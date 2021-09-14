@@ -51,6 +51,7 @@ const ProjectListProvider: React.FC = ({ children }) => {
     const getProjects = async () => {
       const { results } = await client().query([
         Prismic.Predicates.at('document.type', 'project'),
+        Prismic.Predicates.not('my.project.type', 'CSS Art'),
       ]);
 
       const projectData: Project[] = results.map(result => ({

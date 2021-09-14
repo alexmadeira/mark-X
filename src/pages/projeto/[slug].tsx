@@ -103,7 +103,7 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
               <ShimmerLine h="10px" w="100px" m="0 0 8px 0" flex />
             </>
           ) : (
-            project?.shortdescription
+            project?.description
           )}
         </HeaderDescription>
       </Header>

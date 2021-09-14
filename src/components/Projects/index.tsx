@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
             logo={logo}
           />
         ))}
-        <Project
+        {/* <Project
           key="asd"
           id="sss"
           name="teste"
@@ -54,7 +54,7 @@ const Projects: React.FC = () => {
             url:
               'https://images.prismic.io/mark-x/11798333-78c0-4256-b2f6-91ca22abf329_nerd-universe-logo.png',
           }}
-        />
+        /> */}
       </ProjectsList>
     </Container>
   );

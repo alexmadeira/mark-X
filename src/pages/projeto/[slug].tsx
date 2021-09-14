@@ -123,8 +123,8 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
       </Spotlight>
 
       <NextProject>
-        <NavProject slug={project?.next.slug} />
         <NavProject slug={project?.prev.slug} />
+        <NavProject slug={project?.next.slug} />
       </NextProject>
     </Container>
   );

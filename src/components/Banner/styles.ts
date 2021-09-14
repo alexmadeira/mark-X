@@ -156,6 +156,7 @@ export const SubTitle = styled.h2`
   @media (max-width: 780px) {
     align-items: flex-start;
     justify-content: flex-start;
+    display: none;
     font-size: ${props => props.theme.fonts.Sizes.Banner.highlighted};
     line-height: calc(
       ${props => props.theme.fonts.Sizes.Banner.highlighted} + 10px

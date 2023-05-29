@@ -142,16 +142,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx: StaticProps) => {
   const { slug } = ctx.params;
-
   const result = await client().getByUID('project', slug, {
     lang: 'pt-br',
   });
 
   const projectData: Project = {
     ...result.data,
-    name: result.data.name[0].text,
-    shortdescription: result.data.shortdescription[0].text,
-    description: result.data.description[0].text,
+    name: result.data.name,
+    shortdescription: result.data.shortdescription,
+    description: result.data.description,
     slug: result.uid,
     id: result.id,
   };

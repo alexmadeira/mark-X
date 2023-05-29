@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { ShimmerImage, ShimmerLine } from './styles';
 
@@ -7,6 +7,7 @@ interface ShimmerProps {
   w?: string;
   m?: string;
   flex?: boolean;
+  children?: ReactNode;
 }
 
 interface UseShimmerProps {

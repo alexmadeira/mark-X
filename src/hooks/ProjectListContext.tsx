@@ -1,4 +1,10 @@
-import React, { useState, createContext, useContext, useEffect } from 'react';
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useEffect,
+  ReactNode,
+} from 'react';
 
 import Prismic from 'prismic-javascript';
 
@@ -33,7 +39,10 @@ const ProjectListContext = createContext<ProjectListContextData>(
   {} as ProjectListContextData,
 );
 
-const ProjectListProvider: React.FC = ({ children }) => {
+interface Props {
+  children: ReactNode;
+}
+const ProjectListProvider: React.FC = ({ children }: Props) => {
   const [open, setOpen] = useState(false);
   const [projects, setProjects] = useState<Project[]>([]);
 

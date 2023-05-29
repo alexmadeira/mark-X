@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 
 import NextLink from 'next/link';
 
@@ -9,6 +9,7 @@ import { Container } from './styles';
 interface HomeBackProps {
   isHome?: boolean;
   projectId: string;
+  children: ReactNode;
 }
 const HomeBack: React.FC<HomeBackProps> = ({
   projectId,

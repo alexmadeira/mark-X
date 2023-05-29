@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {
   useEffect,
   createContext,
@@ -39,14 +40,14 @@ interface BannerContextData {
   percent: number;
   projects: Project[];
 
-  set(): void;
+  set(index: number): void;
   next(): void;
   prev(): void;
   pause(): void;
   start(): void;
-  setShowProject(): void;
+  setShowProject(projectId: string): void;
   inBanner(): boolean;
-  setById(): void;
+  setById(projectId: string): void;
 }
 
 interface Props {

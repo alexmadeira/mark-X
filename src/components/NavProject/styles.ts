@@ -25,6 +25,11 @@ export const A = styled.a`
     transition: opacity 500ms ease;
   }
   span {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+  }
+  p {
     position: absolute;
   }
   &:hover {

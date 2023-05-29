@@ -39,7 +39,7 @@ const NavProject: React.FC<NavProjectProps> = ({ slug }) => {
 
       const projectData: Project = {
         ...result.data,
-        name: result.data.name[0].text,
+        name: result.data.name,
         slug: result.uid,
       };
       setProject(projectData);
@@ -47,18 +47,20 @@ const NavProject: React.FC<NavProjectProps> = ({ slug }) => {
     getProject();
   }, [slug]);
 
+  useEffect(() => {
+    // console.log(project.minibanner.dimensions);
+  }, [project]);
+
   return (
     <Link href={`/projeto/${project?.slug}`}>
       <A>
-        {project.minibanner && (
-          <Image
-            src={project.minibanner.url}
-            width={project.minibanner.dimensions.width}
-            height={project.minibanner.dimensions.height}
-            alt={`${project.name} Banner`}
-          />
-        )}
-        <span>{project?.name}</span>
+        <Image
+          src={project.minibanner?.url}
+          width={500}
+          height={500}
+          alt={`${project.name} Banner`}
+        />
+        <p>{!!project && project?.name}</p>
       </A>
     </Link>
   );

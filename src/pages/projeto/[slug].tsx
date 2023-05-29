@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Prismic from 'prismic-javascript';
 
 import Emoji from '~/components/Emoji';
 import HomeBack from '~/components/HomeBack';
@@ -127,9 +128,14 @@ const Projeto: React.FC<ProjectProps> = ({ isHome = false, project }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = () => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { results } = await client().query([
+    Prismic.Predicates.at('document.type', 'project'),
+  ]);
+  const paths = results.map(result => ({ params: { slug: result.uid } }));
+
   return {
-    paths: [],
+    paths,
     fallback: true,
   };
 };
@@ -143,10 +149,9 @@ export const getStaticProps: GetStaticProps = async (ctx: StaticProps) => {
 
   const projectData: Project = {
     ...result.data,
-    name: result.data.name,
+    name: result.data.name[0].text,
     shortdescription: result.data.shortdescription[0].text,
     description: result.data.description[0].text,
-    instagram: result.data.instagram[0].text,
     slug: result.uid,
     id: result.id,
   };

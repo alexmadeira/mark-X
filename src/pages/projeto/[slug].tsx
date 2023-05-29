@@ -150,7 +150,7 @@ export const getStaticProps: GetStaticProps = async (ctx: StaticProps) => {
 
   const projectData: Project = {
     ...result.data,
-    name: result.data.name[0].text,
+    name: result.data.name,
     shortdescription: result.data.shortdescription[0].text,
     description: result.data.description[0].text,
     instagram: result.data.instagram[0].text,

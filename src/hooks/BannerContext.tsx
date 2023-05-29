@@ -5,6 +5,7 @@ import React, {
   useState,
   useRef,
   useContext,
+  ReactNode,
 } from 'react';
 
 import Prismic from 'prismic-javascript';
@@ -38,19 +39,22 @@ interface BannerContextData {
   percent: number;
   projects: Project[];
 
-  set(index: number): void;
+  set(): void;
   next(): void;
   prev(): void;
   pause(): void;
   start(): void;
-  setShowProject(projectId: string): void;
+  setShowProject(): void;
   inBanner(): boolean;
-  setById(projectId: string): void;
+  setById(): void;
 }
 
+interface Props {
+  children: ReactNode;
+}
 const BannerContext = createContext<BannerContextData>({} as BannerContextData);
 
-const BannerProvider: React.FC = ({ children }) => {
+const BannerProvider: React.FC = ({ children }: Props) => {
   const timeOutDelay = 100;
   const timeOut = useRef(null);
   const [projects, setProjects] = useState<Project[]>([]);

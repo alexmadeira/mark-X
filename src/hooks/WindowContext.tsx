@@ -4,6 +4,7 @@ import React, {
   useCallback,
   useEffect,
   useState,
+  ReactNode,
 } from 'react';
 
 interface WindowContextData {
@@ -11,8 +12,11 @@ interface WindowContextData {
   height: number | null;
 }
 const WindowContext = createContext<WindowContextData>({} as WindowContextData);
+interface Props {
+  children: ReactNode;
+}
 
-const WindowProvider: React.FC = ({ children }) => {
+const WindowProvider: React.FC = ({ children }: Props) => {
   const size = process.browser
     ? JSON.parse(localStorage.getItem('windowSize'))
     : { width: null, height: null };

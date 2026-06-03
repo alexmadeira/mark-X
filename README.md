@@ -1,13 +1,15 @@
 # Mark X
 
 <p align="center">
-  <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_logo.png" alt="Mark X" width="160" />
+  <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_logo.png" alt="Logo do Mark X" width="250" />
 </p>
 
-![Next.js](https://img.shields.io/badge/Next.js-12-000000?style=flat-square&logo=nextdotjs)
-![React](https://img.shields.io/badge/React-17-61DAFB?style=flat-square&logo=react&logoColor=000000)
-![TypeScript](https://img.shields.io/badge/TypeScript-4.3-3178C6?style=flat-square&logo=typescript&logoColor=ffffff)
-![License](https://img.shields.io/badge/license-not%20specified-lightgrey?style=flat-square)
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-12-000000?style=flat-square&logo=nextdotjs" alt="Next.js 12" />
+  <img src="https://img.shields.io/badge/React-17-61DAFB?style=flat-square&logo=react&logoColor=000000" alt="React 17" />
+  <img src="https://img.shields.io/badge/TypeScript-4.3-3178C6?style=flat-square&logo=typescript&logoColor=ffffff" alt="TypeScript 4.3" />
+  <img src="https://img.shields.io/badge/license-not%20specified-lightgrey?style=flat-square" alt="Licença não especificada" />
+</p>
 
 Portfólio pessoal de Alex Madeira desenvolvido com Next.js, React e TypeScript. A aplicação apresenta projetos cadastrados no Prismic, com banner rotativo na página inicial, lista global de projetos e páginas estáticas de detalhe.
 
@@ -15,32 +17,39 @@ Portfólio pessoal de Alex Madeira desenvolvido com Next.js, React e TypeScript.
 
 ## Preview
 
-### Home
+<p align="center">
+  <strong>Home</strong>
+</p>
 
-![Preview da home do Mark X](https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_home.png)
+<p align="center">
+  <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_home.png" alt="Preview da home do Mark X" width="900" />
+</p>
 
-### Projeto
+<p align="center">
+  <strong>Páginas de projeto</strong>
+</p>
 
-![Preview de página de projeto do Mark X](https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_project-1.png)
-
-![Preview de página de projeto do Mark X](https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_project-2.png)
+<p align="center">
+  <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_project-1.png" alt="Preview de página de projeto do Mark X" width="440" />
+  <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_project-2.png" alt="Preview de página de projeto do Mark X" width="440" />
+</p>
 
 ## Sobre o projeto
 
-O Mark X é uma aplicação web para apresentação de projetos de portfólio. O conteúdo principal vem do Prismic: projetos em destaque alimentam o banner da home, enquanto documentos do tipo `project` geram páginas em `/projeto/[slug]`.
+O Mark X é uma aplicação web para apresentação de projetos de portfólio. O conteúdo principal vem do Prismic: projetos em destaque alimentam o banner da home, e documentos do tipo `project` geram páginas em `/projeto/[slug]`.
 
-A interface usa componentes globais para menu, lista de projetos, rodapé, SEO, animações de transição e estilos compartilhados. O projeto também possui uma página `/misc`, baseada em um documento único `misc` do Prismic e em projetos filtrados pelo tipo `Misc`.
+A aplicação centraliza elementos globais de interface, como menu, lista de projetos, rodapé, SEO, animações de transição e estilos compartilhados. Também há uma rota `/misc`, construída a partir do documento único `misc` do Prismic e de projetos filtrados pelo tipo `Misc`.
 
 ## Funcionalidades
 
-- Home com banner de projetos em destaque vindos do Prismic.
-- Navegação manual entre projetos do banner por botões de próximo e anterior.
+- Banner principal com projetos em destaque buscados no Prismic.
+- Navegação manual entre projetos do banner por controles de próximo e anterior.
 - Temporizador visual para alternância automática dos projetos em destaque.
 - Pausa do banner ao passar o mouse sobre o projeto ativo.
-- Lista global de projetos, com filtro para ocultar itens do tipo `CSS Art`.
-- Páginas estáticas de projeto em `/projeto/[slug]`, geradas pelo `uid` do documento no Prismic.
-- Página `/misc` com dados do documento único `misc` e grid de projetos do tipo `Misc`.
-- Navegação entre projeto anterior e próximo a partir dos campos `prev` e `next` do CMS.
+- Lista global de projetos com filtro para ocultar documentos do tipo `CSS Art`.
+- Páginas estáticas de projeto em `/projeto/[slug]`, geradas pelo `uid` dos documentos do CMS.
+- Página `/misc` com conteúdo do documento único `misc` e grid de projetos do tipo `Misc`.
+- Navegação entre projeto anterior e próximo a partir dos campos `prev` e `next`.
 - SEO por página com título, descrição, Open Graph e Twitter Card.
 - Renderização de imagens remotas com `next/image`.
 - Importação de SVGs como componentes React via SVGR.
@@ -51,7 +60,7 @@ A interface usa componentes globais para menu, lista de projetos, rodapé, SEO, 
 |---|---|
 | Framework | Next.js 12 |
 | Interface | React 17 |
-| Linguagem | TypeScript |
+| Linguagem | TypeScript 4.3 |
 | Estilização | styled-components, polished |
 | Animações | framer-motion |
 | CMS | Prismic (`prismic-javascript`, `prismic-dom`) |
@@ -62,16 +71,16 @@ A interface usa componentes globais para menu, lista de projetos, rodapé, SEO, 
 
 ## Arquitetura e decisões técnicas
 
-O projeto usa o roteamento baseado em `pages/` do Next.js. A configuração global fica em `src/pages/_app.tsx`, onde são aplicados `ThemeProvider`, `GlobalStyle`, providers de contexto e componentes persistentes como `Menu`, `Projects` e `Footer`.
+O projeto usa o roteamento baseado em `pages/` do Next.js. A entrada global fica em `src/pages/_app.tsx`, onde são aplicados `ThemeProvider`, `GlobalStyle`, providers de contexto e componentes persistentes como `Menu`, `Projects` e `Footer`.
 
-Principais pontos observados no código:
+Principais decisões observadas no código:
 
-- `src/lib/prismic.ts` centraliza o client do Prismic usando o endpoint `https://mark-x.cdn.prismic.io/api/v2`.
-- `src/pages/projeto/[slug].tsx` usa `getStaticPaths`, `getStaticProps` e `fallback: true` para gerar rotas de projeto a partir do CMS.
-- `src/hooks/BannerContext.tsx` controla projetos em destaque, índice ativo, temporizador, pausa e navegação do banner.
-- `src/hooks/ProjectListContext.tsx` controla abertura da lista global de projetos e busca a relação de projetos no Prismic.
-- `src/hooks/WindowContext.tsx` disponibiliza informações de viewport para componentes dependentes do tamanho da janela.
-- `src/components/SEO.tsx` concentra metadados de página e usa `NEXT_PUBLIC_SITE_URL` para montar URLs absolutas quando uma imagem é informada.
+- `src/lib/prismic.ts` centraliza a criação do client do Prismic usando o endpoint `https://mark-x.cdn.prismic.io/api/v2`.
+- `src/pages/projeto/[slug].tsx` usa `getStaticPaths`, `getStaticProps`, `fallback: true` e `revalidate: true` para gerar páginas de projeto.
+- `src/hooks/BannerContext.tsx` controla projetos em destaque, índice ativo, porcentagem do temporizador, pausa e navegação do banner.
+- `src/hooks/ProjectListContext.tsx` controla abertura da lista global de projetos e busca documentos do tipo `project`.
+- `src/hooks/WindowContext.tsx` disponibiliza dimensões da janela para componentes que dependem do viewport.
+- `src/components/SEO.tsx` centraliza metadados de página e usa `NEXT_PUBLIC_SITE_URL` para montar URLs absolutas quando uma imagem é informada.
 - `src/services/api.ts` cria uma instância Axios apontada para `https://www.instagram.com/` com o parâmetro `__a=1`.
 - O alias `~/*` aponta para `src/*`, conforme `tsconfig.json`.
 - `next.config.js` adiciona suporte a SVG via SVGR e libera imagens remotas de Prismic e domínios do Instagram.
@@ -86,16 +95,17 @@ src/
 ├── lib/            # Integrações base, como o client do Prismic
 ├── pages/          # Rotas e entradas globais do Next.js
 ├── services/       # Clientes de serviços externos
-├── styles/         # Estilos globais, tema, páginas e variantes de animação
+├── styles/         # Estilos globais, tema, páginas e variantes
 └── utils/          # Funções utilitárias
 
 public/
+├── doc/            # Logo e imagens de preview usadas no README
 └── favicon/        # Favicons, manifest e PDF público do currículo
 ```
 
 ## Como executar localmente
 
-O repositório contém `package-lock.json` e `pnpm-lock.yaml`. Para evitar divergência de dependências, escolha um gerenciador e mantenha o lockfile correspondente no fluxo de desenvolvimento. Os exemplos abaixo usam `npm`, que está alinhado ao `package-lock.json`.
+O repositório contém `package-lock.json` e `pnpm-lock.yaml`. Para evitar divergência de dependências, escolha um gerenciador e mantenha o lockfile correspondente no fluxo de desenvolvimento. Os exemplos abaixo usam `npm`, alinhado ao `package-lock.json`.
 
 Instale as dependências:
 
@@ -103,7 +113,7 @@ Instale as dependências:
 npm install
 ```
 
-Execute o servidor de desenvolvimento:
+Execute o ambiente de desenvolvimento:
 
 ```bash
 npm run dev
@@ -117,7 +127,7 @@ Existe um arquivo `.env.development` com a variável usada pelo componente de SE
 
 | Variável | Descrição | Obrigatória |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | URL base usada para montar URLs absolutas de imagem no componente `SEO`. | Sim, quando páginas enviarem imagem para compartilhamento |
+| `NEXT_PUBLIC_SITE_URL` | URL base usada para montar URLs absolutas de imagem no componente `SEO`. | Sim, quando páginas informarem imagem de compartilhamento |
 
 Exemplo local:
 
@@ -147,7 +157,7 @@ O projeto possui configuração de ESLint, Prettier, Husky, lint-staged, Commitl
 - O Prettier está configurado em `prettier.config.js`.
 - O `lint-staged` executa `npx eslint --fix` em arquivos staged dentro de `src/`.
 - Os commits seguem `@commitlint/config-conventional`, com Commitizen configurado para `cz-conventional-changelog`.
-- Não há script `lint` declarado em `package.json`; a execução configurada ocorre no hook de pre-commit.
+- Não há script `lint` declarado no `package.json`; a execução configurada ocorre no hook de pre-commit.
 
 ## Build e produção
 
@@ -167,12 +177,12 @@ Por padrão, `next start` usa a porta `3000`, salvo configuração externa de am
 
 ## Deploy
 
-Não há arquivos de configuração de deploy, Docker ou GitHub Actions no repositório. O projeto pode ser publicado em uma plataforma compatível com Next.js, mas nenhuma configuração específica de provedor foi identificada no código.
+Não há arquivos de configuração de deploy, Docker ou GitHub Actions no repositório. O projeto pode ser publicado em plataformas compatíveis com Next.js, mas nenhuma configuração específica de provedor foi identificada no código.
 
 ## Status atual
 
 - Aplicação Next.js com conteúdo dinâmico vindo do Prismic.
-- README atualizado com base no código presente no repositório.
+- README documentado com logo, badges e imagens de preview do projeto.
 - Testes automatizados, Docker, CI/CD e configuração explícita de deploy não estão presentes.
 
 ## Licença

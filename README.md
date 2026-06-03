@@ -1,14 +1,14 @@
 # Mark X
 
 <p align="center">
-  <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_logo.png" alt="Logo do Mark X" width="250" />
+  <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_logo.png" alt="Logo do Mark X" width="400" />
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-12-000000?style=flat-square&logo=nextdotjs" alt="Next.js 12" />
   <img src="https://img.shields.io/badge/React-17-61DAFB?style=flat-square&logo=react&logoColor=000000" alt="React 17" />
   <img src="https://img.shields.io/badge/TypeScript-4.3-3178C6?style=flat-square&logo=typescript&logoColor=ffffff" alt="TypeScript 4.3" />
-  <img src="https://img.shields.io/badge/license-not%20specified-lightgrey?style=flat-square" alt="Licença não especificada" />
+  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="Licença MIT" />
 </p>
 
 Portfólio pessoal de Alex Madeira desenvolvido com Next.js, React e TypeScript. A aplicação apresenta projetos cadastrados no Prismic, com banner rotativo na página inicial, lista global de projetos e páginas estáticas de detalhe.
@@ -175,16 +175,6 @@ npm run start
 
 Por padrão, `next start` usa a porta `3000`, salvo configuração externa de ambiente.
 
-## Deploy
-
-Não há arquivos de configuração de deploy, Docker ou GitHub Actions no repositório. O projeto pode ser publicado em plataformas compatíveis com Next.js, mas nenhuma configuração específica de provedor foi identificada no código.
-
-## Status atual
-
-- Aplicação Next.js com conteúdo dinâmico vindo do Prismic.
-- README documentado com logo, badges e imagens de preview do projeto.
-- Testes automatizados, Docker, CI/CD e configuração explícita de deploy não estão presentes.
-
 ## Licença
 
-Não foi encontrado arquivo de licença no repositório.
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.

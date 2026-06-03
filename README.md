@@ -135,10 +135,6 @@ O endpoint do Prismic está definido diretamente em `src/lib/prismic.ts`; não h
 | `npm run build` | Gera o build de produção. |
 | `npm run start` | Executa a aplicação a partir do build gerado. |
 
-## Testes
-
-Não foram encontrados arquivos `*.test.*`, arquivos `*.spec.*`, pasta `__tests__` ou script de teste no `package.json`.
-
 ## Qualidade de código
 
 O projeto possui configuração de ESLint, Prettier, Husky, lint-staged, Commitlint e Commitizen.

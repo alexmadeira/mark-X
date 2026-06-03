@@ -147,10 +147,11 @@ const BannerProvider: React.FC = ({ children }: Props) => {
         Prismic.Predicates.at('my.project.spotlight', true),
       ]);
 
+      console.log(results);
       const projectData: Project[] = results.map(result => ({
         ...result.data,
-        name: result.data.name[0].text,
-        shortdescription: result.data.shortdescription[0].text,
+        name: result.data.name,
+        shortdescription: result.data.shortdescription,
         slug: result.uid,
         id: result.id,
       }));

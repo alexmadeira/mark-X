@@ -18,20 +18,10 @@ Portfólio pessoal de Alex Madeira desenvolvido com Next.js, React e TypeScript.
 ## Preview
 
 <p align="center">
-  <strong>Home</strong>
-</p>
-
-<p align="center">
   <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_home.png" alt="Preview da home do Mark X" width="900" />
 </p>
-
 <p align="center">
-  <strong>Páginas de projeto</strong>
-</p>
-
-<p align="center">
-  <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_project-1.png" alt="Preview de página de projeto do Mark X" width="440" />
-  <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_project-2.png" alt="Preview de página de projeto do Mark X" width="440" />
+   <img src="https://github.com/alexmadeira/mark-X/blob/main/public/doc/mark-x_project-2.png" alt="Preview de página de projeto do Mark X" width="900" />
 </p>
 
 ## Sobre o projeto
